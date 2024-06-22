@@ -1,0 +1,18 @@
+[2024-06-20T12:08:55.278+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:08:55.404+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats manual__2024-06-20T12:08:52.825194+00:00 [queued]>
+[2024-06-20T12:08:55.421+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats manual__2024-06-20T12:08:52.825194+00:00 [queued]>
+[2024-06-20T12:08:55.422+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-20T12:08:55.450+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_player_stats> on 2024-06-20 12:08:52.825194+00:00
+[2024-06-20T12:08:55.469+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=19095) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:08:55.472+0000] {standard_task_runner.py:63} INFO - Started process 19208 to run task
+[2024-06-20T12:08:55.473+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'fetch_player_stats', 'manual__2024-06-20T12:08:52.825194+00:00', '--job-id', '895', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp7olivzu1']
+[2024-06-20T12:08:55.485+0000] {standard_task_runner.py:91} INFO - Job 895: Subtask fetch_player_stats
+[2024-06-20T12:08:55.704+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.fetch_player_stats manual__2024-06-20T12:08:52.825194+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:08:56.086+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='fetch_player_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-20T12:08:52.825194+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-20T12:08:52.825194+00:00'
+[2024-06-20T12:08:56.088+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:09:40.118+0000] {python.py:237} INFO - Done. Returned value was: /home/ubuntu/dags/nba_news_stats_data/player_stats.csv
+[2024-06-20T12:09:40.119+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:09:40.175+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline_dag, task_id=fetch_player_stats, run_id=manual__2024-06-20T12:08:52.825194+00:00, execution_date=20240620T120852, start_date=20240620T120855, end_date=20240620T120940
+[2024-06-20T12:09:40.203+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-20T12:09:40.247+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:09:40.249+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

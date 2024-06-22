@@ -1,0 +1,458 @@
+[2024-06-18T18:30:35.942+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T18:30:36.032+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:30:36.051+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:30:36.052+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T18:30:36.094+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_table_stats> on 2024-06-17 00:00:00+00:00
+[2024-06-18T18:30:36.125+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_table_stats', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '189', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp1g0ym_cc']
+[2024-06-18T18:30:36.133+0000] {standard_task_runner.py:91} INFO - Job 189: Subtask snowflake_create_table_stats
+[2024-06-18T18:30:36.141+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=15078) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T18:30:36.148+0000] {standard_task_runner.py:63} INFO - Started process 15239 to run task
+[2024-06-18T18:30:36.285+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T18:30:36.580+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_table_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T18:30:36.581+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T18:30:36.609+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );
+        
+[2024-06-18T18:30:36.639+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:30:36.907+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:30:36.908+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T18:30:36.909+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T18:30:38.757+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:30:38.760+0000] {sql.py:487} INFO - Running statement: CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );, parameters: None
+[2024-06-18T18:30:39.555+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:30:39.555+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T18:30:39.558+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T18:30:39.559+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518d6-0001-e49c-0006-023e0001723a
+[2024-06-18T18:30:39.645+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:30:39.646+0000] {connection.py:762} INFO - closed
+[2024-06-18T18:30:39.682+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T18:30:39.729+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T18:30:39.866+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_table_stats, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T183036, end_date=20240618T183039
+[2024-06-18T18:30:39.906+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T18:30:39.964+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T18:30:39.970+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T18:41:36.134+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T18:41:36.191+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:41:36.200+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:41:36.200+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T18:41:36.214+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_table_stats> on 2024-06-17 00:00:00+00:00
+[2024-06-18T18:41:36.234+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=18773) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T18:41:36.236+0000] {standard_task_runner.py:63} INFO - Started process 18806 to run task
+[2024-06-18T18:41:36.233+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_table_stats', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '210', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmppksx3e8e']
+[2024-06-18T18:41:36.238+0000] {standard_task_runner.py:91} INFO - Job 210: Subtask snowflake_create_table_stats
+[2024-06-18T18:41:36.371+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T18:41:36.603+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_table_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T18:41:36.606+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T18:41:36.634+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );
+        
+[2024-06-18T18:41:36.678+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:41:37.130+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:41:37.132+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T18:41:37.133+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T18:41:37.456+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:37.457+0000] {sql.py:487} INFO - Running statement: CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );, parameters: None
+[2024-06-18T18:41:37.536+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:37.536+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T18:41:37.536+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T18:41:37.537+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518e1-0001-e496-0006-023e000191fe
+[2024-06-18T18:41:37.607+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:37.608+0000] {connection.py:762} INFO - closed
+[2024-06-18T18:41:37.647+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T18:41:37.681+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T18:41:37.734+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_table_stats, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T184136, end_date=20240618T184137
+[2024-06-18T18:41:37.783+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T18:41:37.821+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T18:41:37.824+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T18:54:29.144+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T18:54:29.194+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:54:29.213+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:54:29.213+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T18:54:29.236+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_table_stats> on 2024-06-17 00:00:00+00:00
+[2024-06-18T18:54:29.255+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=22947) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T18:54:29.259+0000] {standard_task_runner.py:63} INFO - Started process 22988 to run task
+[2024-06-18T18:54:29.268+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_table_stats', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '228', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmpt411gxbn']
+[2024-06-18T18:54:29.275+0000] {standard_task_runner.py:91} INFO - Job 228: Subtask snowflake_create_table_stats
+[2024-06-18T18:54:29.434+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T18:54:29.680+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_table_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T18:54:29.683+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T18:54:29.709+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );
+        
+[2024-06-18T18:54:29.754+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:54:30.244+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:54:30.248+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T18:54:30.249+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T18:54:30.717+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:30.718+0000] {sql.py:487} INFO - Running statement: CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );, parameters: None
+[2024-06-18T18:54:30.805+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:30.805+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T18:54:30.805+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T18:54:30.806+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518ee-0001-e49d-0006-023e0001f0de
+[2024-06-18T18:54:30.908+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:30.909+0000] {connection.py:762} INFO - closed
+[2024-06-18T18:54:30.936+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T18:54:30.969+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T18:54:31.030+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_table_stats, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T185429, end_date=20240618T185431
+[2024-06-18T18:54:31.052+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T18:54:31.089+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T18:54:31.091+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T19:09:56.545+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T19:09:56.631+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:09:56.655+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:09:56.655+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T19:09:56.678+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_table_stats> on 2024-06-17 00:00:00+00:00
+[2024-06-18T19:09:56.698+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_table_stats', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '250', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp4lhk3jr_']
+[2024-06-18T19:09:56.704+0000] {standard_task_runner.py:91} INFO - Job 250: Subtask snowflake_create_table_stats
+[2024-06-18T19:09:56.705+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=29343) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T19:09:56.705+0000] {standard_task_runner.py:63} INFO - Started process 29377 to run task
+[2024-06-18T19:09:56.868+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T19:09:57.171+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_table_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T19:09:57.172+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T19:09:57.202+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );
+        
+[2024-06-18T19:09:57.248+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:09:57.564+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:09:57.565+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T19:09:57.566+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T19:09:57.566+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:09:57.632+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:09:57.906+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:57.906+0000] {sql.py:487} INFO - Running statement: CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );, parameters: None
+[2024-06-18T19:09:57.974+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:57.974+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T19:09:57.975+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T19:09:57.975+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518fd-0001-e49a-0006-023e0001a252
+[2024-06-18T19:09:58.029+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:58.029+0000] {connection.py:762} INFO - closed
+[2024-06-18T19:09:58.066+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T19:09:58.111+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T19:09:58.242+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_table_stats, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T190956, end_date=20240618T190958
+[2024-06-18T19:09:58.295+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T19:09:58.331+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T19:09:58.333+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T20:34:01.022+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T20:34:01.074+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T20:34:01.085+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T20:34:01.086+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T20:34:01.101+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_table_stats> on 2024-06-17 00:00:00+00:00
+[2024-06-18T20:34:01.113+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_table_stats', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '286', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmpenqt03t_']
+[2024-06-18T20:34:01.117+0000] {standard_task_runner.py:91} INFO - Job 286: Subtask snowflake_create_table_stats
+[2024-06-18T20:34:01.117+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3528) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T20:34:01.118+0000] {standard_task_runner.py:63} INFO - Started process 3615 to run task
+[2024-06-18T20:34:01.234+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_table_stats scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T20:34:01.399+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_table_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T20:34:01.400+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T20:34:01.417+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );
+        
+[2024-06-18T20:34:01.446+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T20:34:01.721+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T20:34:01.722+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T20:34:01.723+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T20:34:01.723+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T20:34:01.809+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T20:34:02.490+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:34:02.490+0000] {sql.py:487} INFO - Running statement: CREATE TABLE IF NOT EXISTS NBA_STATS.player_stats (
+            PLAYER_ID NUMBER,
+            PLAYER STRING,
+            TEAM STRING,
+            GP NUMBER,
+            MIN NUMBER,
+            FGM NUMBER,
+            FGA NUMBER,
+            FG3M NUMBER,
+            FG3A NUMBER,
+            FTM NUMBER,
+            FTA NUMBER,
+            OREB NUMBER,
+            DREB NUMBER,
+            REB NUMBER,
+            AST NUMBER,
+            STL NUMBER,
+            BLK NUMBER,
+            TOV NUMBER,
+            PF NUMBER,
+            PTS NUMBER,
+            PPG NUMBER,
+            APG NUMBER,
+            RPG NUMBER,
+            BPG NUMBER,
+            SPG NUMBER,
+            FG_PERCENTAGE NUMBER,
+            THREEP_PERCENTAGE NUMBER,
+            FT_PERCENTAGE NUMBER
+        );, parameters: None
+[2024-06-18T20:34:02.724+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:34:02.725+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T20:34:02.725+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T20:34:02.726+0000] {snowflake.py:410} INFO - Snowflake query id: 01b51952-0001-e49d-0006-023e0001f18e
+[2024-06-18T20:34:02.812+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:34:02.812+0000] {connection.py:762} INFO - closed
+[2024-06-18T20:34:02.842+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T20:34:02.889+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T20:34:02.948+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_table_stats, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T203401, end_date=20240618T203402
+[2024-06-18T20:34:02.983+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T20:34:03.011+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

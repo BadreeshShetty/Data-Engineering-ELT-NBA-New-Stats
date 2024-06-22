@@ -1,0 +1,69 @@
+[2024-06-18T17:56:28.189+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T17:56:28.231+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T17:55:34.768176+00:00 [queued]>
+[2024-06-18T17:56:28.240+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T17:55:34.768176+00:00 [queued]>
+[2024-06-18T17:56:28.240+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T17:56:28.254+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_db_schema> on 2024-06-18 17:55:34.768176+00:00
+[2024-06-18T17:56:28.263+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_db_schema', 'manual__2024-06-18T17:55:34.768176+00:00', '--job-id', '156', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmpgfw2rqkr']
+[2024-06-18T17:56:28.266+0000] {standard_task_runner.py:91} INFO - Job 156: Subtask snowflake_create_db_schema
+[2024-06-18T17:56:28.266+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=7383) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T17:56:28.267+0000] {standard_task_runner.py:63} INFO - Started process 7432 to run task
+[2024-06-18T17:56:28.363+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T17:55:34.768176+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T17:56:28.509+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_db_schema' AIRFLOW_CTX_EXECUTION_DATE='2024-06-18T17:55:34.768176+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-18T17:55:34.768176+00:00'
+[2024-06-18T17:56:28.510+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T17:56:28.524+0000] {sql.py:276} INFO - Executing: 
+        CREATE DATABASE IF NOT EXISTS NBA_STATS_ANALYTICS;
+        CREATE SCHEMA IF NOT EXISTS NBA_STATS_ANALYTICS.NBA_STATS;
+        
+[2024-06-18T17:56:28.549+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T17:56:28.791+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T17:56:28.792+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T17:56:28.793+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T17:56:28.978+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T17:56:28.978+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+                 ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 289, in get_conn
+    conn = connector.connect(**conn_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 442, in __init__
+    self.connect(**kwargs)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 745, in connect
+    self.__open_connection()
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1073, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1345, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1373, in _authenticate
+    auth.authenticate(
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 401, in authenticate
+    Error.errorhandler_wrapper(
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+    connection.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.DatabaseError: 250001 (08001): None: Failed to connect to DB: lv27483.us-east-2.aws.snowflakecomputing.com:443. Your user account has been temporarily locked due to too many failed attempts. Try again after 15 minutes or contact your account administrator for assistance. For more information about this error, go to https://community.snowflake.com/s/error-your-user-login-has-been-locked.
+[2024-06-18T17:56:29.003+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=nba_data_pipeline, task_id=snowflake_create_db_schema, run_id=manual__2024-06-18T17:55:34.768176+00:00, execution_date=20240618T175534, start_date=20240618T175628, end_date=20240618T175629
+[2024-06-18T17:56:29.014+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 156 for task snowflake_create_db_schema (250001 (08001): None: Failed to connect to DB: lv27483.us-east-2.aws.snowflakecomputing.com:443. Your user account has been temporarily locked due to too many failed attempts. Try again after 15 minutes or contact your account administrator for assistance. For more information about this error, go to https://community.snowflake.com/s/error-your-user-login-has-been-locked.; 7432)
+[2024-06-18T17:56:29.043+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-18T17:56:29.083+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T17:56:29.085+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

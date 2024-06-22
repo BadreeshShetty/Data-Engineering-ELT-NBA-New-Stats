@@ -1,0 +1,53 @@
+[2024-06-21T00:00:09.254+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-21T00:00:09.293+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.snowflake_copy_news scheduled__2024-06-20T00:00:00+00:00 [queued]>
+[2024-06-21T00:00:09.302+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.snowflake_copy_news scheduled__2024-06-20T00:00:00+00:00 [queued]>
+[2024-06-21T00:00:09.303+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-21T00:00:09.316+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_copy_news> on 2024-06-20 00:00:00+00:00
+[2024-06-21T00:00:09.326+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=17613) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-21T00:00:09.327+0000] {standard_task_runner.py:63} INFO - Started process 17627 to run task
+[2024-06-21T00:00:09.326+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'snowflake_copy_news', 'scheduled__2024-06-20T00:00:00+00:00', '--job-id', '1703', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp595g0aw0']
+[2024-06-21T00:00:09.328+0000] {standard_task_runner.py:91} INFO - Job 1703: Subtask snowflake_copy_news
+[2024-06-21T00:00:09.422+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.snowflake_copy_news scheduled__2024-06-20T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-21T00:00:09.581+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='snowflake_copy_news' AIRFLOW_CTX_EXECUTION_DATE='2024-06-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-20T00:00:00+00:00'
+[2024-06-21T00:00:09.582+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-21T00:00:09.595+0000] {sql.py:276} INFO - Executing: 
+        USE WAREHOUSE NBA_STATS_WAREHOUSE;
+        USE NBA_STATS_ANALYTICS;
+        COPY INTO NBA_STATS.nba_news
+        FROM @SNOW_S3_STAGE/nba_news.parquet
+        FILE_FORMAT = (FORMAT_NAME = 'PARQUET_FORMAT')
+        MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE;
+        
+[2024-06-21T00:00:09.621+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-21T00:00:09.884+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-21T00:00:09.885+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-21T00:00:09.885+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-21T00:00:09.886+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-21T00:00:09.953+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-21T00:00:10.276+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-21T00:00:10.277+0000] {sql.py:487} INFO - Running statement: USE WAREHOUSE NBA_STATS_WAREHOUSE;, parameters: None
+[2024-06-21T00:00:10.410+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-21T00:00:10.411+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-21T00:00:10.411+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-21T00:00:10.411+0000] {snowflake.py:410} INFO - Snowflake query id: 01b52560-0001-e499-0006-023e00023d4a
+[2024-06-21T00:00:10.412+0000] {sql.py:487} INFO - Running statement: USE NBA_STATS_ANALYTICS;, parameters: None
+[2024-06-21T00:00:10.499+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-21T00:00:10.499+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-21T00:00:10.499+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-21T00:00:10.499+0000] {snowflake.py:410} INFO - Snowflake query id: 01b52560-0001-e49d-0006-023e00029a96
+[2024-06-21T00:00:10.500+0000] {sql.py:487} INFO - Running statement: COPY INTO NBA_STATS.nba_news
+        FROM @SNOW_S3_STAGE/nba_news.parquet
+        FILE_FORMAT = (FORMAT_NAME = 'PARQUET_FORMAT')
+        MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE;, parameters: None
+[2024-06-21T00:00:11.962+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-21T00:00:11.962+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-21T00:00:11.963+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-21T00:00:11.963+0000] {snowflake.py:410} INFO - Snowflake query id: 01b52560-0001-e495-0006-023e00026d0e
+[2024-06-21T00:00:12.263+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-21T00:00:12.264+0000] {connection.py:762} INFO - closed
+[2024-06-21T00:00:12.363+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-21T00:00:12.409+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-21T00:00:12.465+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline_dag, task_id=snowflake_copy_news, run_id=scheduled__2024-06-20T00:00:00+00:00, execution_date=20240620T000000, start_date=20240621T000009, end_date=20240621T000012
+[2024-06-21T00:00:12.523+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-21T00:00:12.561+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-21T00:00:12.564+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

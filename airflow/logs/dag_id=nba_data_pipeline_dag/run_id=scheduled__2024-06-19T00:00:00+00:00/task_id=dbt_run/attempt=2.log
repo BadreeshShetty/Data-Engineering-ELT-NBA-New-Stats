@@ -1,0 +1,618 @@
+[2024-06-20T11:43:17.823+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T11:43:17.871+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T11:43:17.881+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T11:43:17.881+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T11:43:17.898+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T11:43:17.920+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=11075) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T11:43:17.924+0000] {standard_task_runner.py:63} INFO - Started process 11088 to run task
+[2024-06-20T11:43:17.919+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '855', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpd04tyxra']
+[2024-06-20T11:43:17.926+0000] {standard_task_runner.py:91} INFO - Job 855: Subtask dbt_run
+[2024-06-20T11:43:18.139+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T11:43:18.433+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T11:43:18.436+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T11:43:18.450+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T11:43:18.451+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T11:43:18.467+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T11:43:21.108+0000] {subprocess.py:93} INFO - [0m11:43:21  Running with dbt=1.8.2
+[2024-06-20T11:43:22.278+0000] {subprocess.py:93} INFO - [0m11:43:22  Registered adapter: snowflake=1.8.3
+[2024-06-20T11:43:22.304+0000] {subprocess.py:93} INFO - [0m11:43:22  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2024-06-20T11:43:23.919+0000] {subprocess.py:93} INFO - [0m11:43:23  [[33mWARNING[0m]: Did not find matching node for patch with name 'staging_player_stats' in the 'models' section of file 'models/schema.yml'
+[2024-06-20T11:43:23.930+0000] {subprocess.py:93} INFO - [0m11:43:23  [[33mWARNING[0m]: Did not find matching node for patch with name 'staging_nba_scores' in the 'models' section of file 'models/schema.yml'
+[2024-06-20T11:43:23.934+0000] {subprocess.py:93} INFO - [0m11:43:23  [[33mWARNING[0m]: Did not find matching node for patch with name 'staging_nba_news' in the 'models' section of file 'models/schema.yml'
+[2024-06-20T11:43:23.938+0000] {subprocess.py:93} INFO - [0m11:43:23  [[33mWARNING[0m]: Did not find matching node for patch with name 'staging_top_100_players_stats' in the 'models' section of file 'models/schema.yml'
+[2024-06-20T11:43:24.100+0000] {subprocess.py:93} INFO - [0m11:43:24  Encountered an error:
+[2024-06-20T11:43:24.101+0000] {subprocess.py:93} INFO - Compilation Error
+[2024-06-20T11:43:24.101+0000] {subprocess.py:93} INFO -   Model 'model.nba_project.player_stats' (models/staging/player_stats.sql) depends on a source named 'nba_stats.player_stats' which was not found
+[2024-06-20T11:43:25.057+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-06-20T11:43:25.058+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T11:43:25.086+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-06-20T11:43:25.091+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T114317, end_date=20240620T114325
+[2024-06-20T11:43:25.107+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 855 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 11088)
+[2024-06-20T11:43:25.153+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T11:43:25.186+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T11:43:25.188+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T11:55:16.790+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T11:55:16.836+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T11:55:16.846+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T11:55:16.847+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T11:55:16.860+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T11:55:16.871+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=17582) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T11:55:16.873+0000] {standard_task_runner.py:63} INFO - Started process 17590 to run task
+[2024-06-20T11:55:16.872+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '892', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp6emcyiwg']
+[2024-06-20T11:55:16.874+0000] {standard_task_runner.py:91} INFO - Job 892: Subtask dbt_run
+[2024-06-20T11:55:16.980+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T11:55:17.197+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T11:55:17.200+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T11:55:17.229+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T11:55:17.231+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T11:55:17.261+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T11:55:19.842+0000] {subprocess.py:93} INFO - [0m11:55:19  Running with dbt=1.8.2
+[2024-06-20T11:55:20.936+0000] {subprocess.py:93} INFO - [0m11:55:20  Registered adapter: snowflake=1.8.3
+[2024-06-20T11:55:20.968+0000] {subprocess.py:93} INFO - [0m11:55:20  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2024-06-20T11:55:22.776+0000] {subprocess.py:93} INFO - [0m11:55:22  Encountered an error:
+[2024-06-20T11:55:22.778+0000] {subprocess.py:93} INFO - Compilation Error
+[2024-06-20T11:55:22.778+0000] {subprocess.py:93} INFO -   Model 'model.nba_project.staging_player_stats' (models/staging/staging_player_stats.sql) depends on a source named 'nba_stats.player_stats' which was not found
+[2024-06-20T11:55:23.595+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-06-20T11:55:23.596+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T11:55:23.624+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-06-20T11:55:23.629+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T115516, end_date=20240620T115523
+[2024-06-20T11:55:23.643+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 892 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 17590)
+[2024-06-20T11:55:23.681+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T11:55:23.713+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T11:55:23.715+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T12:15:19.555+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:15:19.621+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:15:19.639+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:15:19.640+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T12:15:19.662+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T12:15:19.682+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=26209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:15:19.683+0000] {standard_task_runner.py:63} INFO - Started process 26267 to run task
+[2024-06-20T12:15:19.681+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '940', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmptuxglosx']
+[2024-06-20T12:15:19.686+0000] {standard_task_runner.py:91} INFO - Job 940: Subtask dbt_run
+[2024-06-20T12:15:19.803+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:15:19.980+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T12:15:19.982+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:15:19.999+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T12:15:19.999+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T12:15:20.015+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T12:15:22.555+0000] {subprocess.py:93} INFO - [0m12:15:22  Running with dbt=1.8.2
+[2024-06-20T12:15:23.660+0000] {subprocess.py:93} INFO - [0m12:15:23  Registered adapter: snowflake=1.8.3
+[2024-06-20T12:15:24.052+0000] {subprocess.py:93} INFO - [0m12:15:24  Found 8 models, 4 sources, 444 macros
+[2024-06-20T12:15:24.055+0000] {subprocess.py:93} INFO - [0m12:15:24
+[2024-06-20T12:15:24.385+0000] {subprocess.py:93} INFO - [0m12:15:24
+[2024-06-20T12:15:24.385+0000] {subprocess.py:93} INFO - [0m12:15:24  Finished running  in 0 hours 0 minutes and 0.33 seconds (0.33s).
+[2024-06-20T12:15:24.386+0000] {subprocess.py:93} INFO - [0m12:15:24  Encountered an error:
+[2024-06-20T12:15:24.386+0000] {subprocess.py:93} INFO - Runtime Error
+[2024-06-20T12:15:24.387+0000] {subprocess.py:93} INFO -   Database error while listing schemas in database "NBA_STATS_ANALYTICS"
+[2024-06-20T12:15:24.387+0000] {subprocess.py:93} INFO -   Database Error
+[2024-06-20T12:15:24.388+0000] {subprocess.py:93} INFO -     250001 (08001): Failed to connect to DB: lv27483.us-east-2.aws.snowflakecomputing.com:443. Role 'DEV' specified in the connect string does not exist or not authorized. Contact your local system administrator, or attempt to login with another role, e.g. PUBLIC.
+[2024-06-20T12:15:25.576+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-06-20T12:15:25.577+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:15:25.605+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-06-20T12:15:25.611+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T121519, end_date=20240620T121525
+[2024-06-20T12:15:25.625+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 940 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 26267)
+[2024-06-20T12:15:25.685+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T12:15:25.729+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:15:25.736+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T12:23:59.492+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:23:59.537+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:23:59.547+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:23:59.547+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T12:23:59.560+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T12:23:59.570+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=32570) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:23:59.573+0000] {standard_task_runner.py:63} INFO - Started process 32578 to run task
+[2024-06-20T12:23:59.571+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '977', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp38fu3xj5']
+[2024-06-20T12:23:59.575+0000] {standard_task_runner.py:91} INFO - Job 977: Subtask dbt_run
+[2024-06-20T12:23:59.704+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:23:59.860+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T12:23:59.861+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:23:59.878+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T12:23:59.878+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T12:23:59.891+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T12:24:02.016+0000] {subprocess.py:93} INFO - [0m12:24:02  Running with dbt=1.8.2
+[2024-06-20T12:24:03.226+0000] {subprocess.py:93} INFO - [0m12:24:03  Registered adapter: snowflake=1.8.3
+[2024-06-20T12:24:03.551+0000] {subprocess.py:93} INFO - [0m12:24:03  Found 8 models, 4 sources, 444 macros
+[2024-06-20T12:24:03.554+0000] {subprocess.py:93} INFO - [0m12:24:03
+[2024-06-20T12:24:04.449+0000] {subprocess.py:93} INFO - [0m12:24:04  Concurrency: 1 threads (target='dev')
+[2024-06-20T12:24:04.449+0000] {subprocess.py:93} INFO - [0m12:24:04
+[2024-06-20T12:24:04.453+0000] {subprocess.py:93} INFO - [0m12:24:04  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T12:24:05.082+0000] {subprocess.py:93} INFO - [0m12:24:05  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.62s]
+[2024-06-20T12:24:05.084+0000] {subprocess.py:93} INFO - [0m12:24:05  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T12:24:08.788+0000] {subprocess.py:93} INFO - [0m12:24:08  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 3.70s]
+[2024-06-20T12:24:08.791+0000] {subprocess.py:93} INFO - [0m12:24:08  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T12:24:09.306+0000] {subprocess.py:93} INFO - [0m12:24:09  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.51s]
+[2024-06-20T12:24:09.309+0000] {subprocess.py:93} INFO - [0m12:24:09  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T12:24:09.818+0000] {subprocess.py:93} INFO - [0m12:24:09  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 0.51s]
+[2024-06-20T12:24:09.821+0000] {subprocess.py:93} INFO - [0m12:24:09  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T12:24:15.773+0000] {subprocess.py:93} INFO - [0m12:24:15  5 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news  [[31mERROR[0m in 5.95s]
+[2024-06-20T12:24:15.777+0000] {subprocess.py:93} INFO - [0m12:24:15  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T12:24:16.694+0000] {subprocess.py:93} INFO - [0m12:24:16  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.91s]
+[2024-06-20T12:24:16.696+0000] {subprocess.py:93} INFO - [0m12:24:16  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T12:24:17.876+0000] {subprocess.py:93} INFO - [0m12:24:17  7 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[32mSUCCESS 1[0m in 1.18s]
+[2024-06-20T12:24:17.879+0000] {subprocess.py:93} INFO - [0m12:24:17  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T12:24:19.079+0000] {subprocess.py:93} INFO - [0m12:24:19  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 1.20s]
+[2024-06-20T12:24:19.083+0000] {subprocess.py:93} INFO - [0m12:24:19
+[2024-06-20T12:24:19.084+0000] {subprocess.py:93} INFO - [0m12:24:19  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 15.53 seconds (15.53s).
+[2024-06-20T12:24:19.123+0000] {subprocess.py:93} INFO - [0m12:24:19
+[2024-06-20T12:24:19.124+0000] {subprocess.py:93} INFO - [0m12:24:19  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T12:24:19.125+0000] {subprocess.py:93} INFO - [0m12:24:19
+[2024-06-20T12:24:19.125+0000] {subprocess.py:93} INFO - [0m12:24:19    Database Error in model transformed_nba_news (models/transformed/transformed_nba_news.sql)
+[2024-06-20T12:24:19.125+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 9 at position 8
+[2024-06-20T12:24:19.126+0000] {subprocess.py:93} INFO -   invalid identifier 'SOURCE'
+[2024-06-20T12:24:19.126+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_nba_news.sql
+[2024-06-20T12:24:19.126+0000] {subprocess.py:93} INFO - [0m12:24:19
+[2024-06-20T12:24:19.126+0000] {subprocess.py:93} INFO - [0m12:24:19  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T12:24:19.948+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T12:24:19.949+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:24:19.976+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T12:24:19.982+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T122359, end_date=20240620T122419
+[2024-06-20T12:24:19.996+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 977 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 32578)
+[2024-06-20T12:24:20.039+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T12:24:20.072+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:24:20.074+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T12:42:53.311+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:42:53.359+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:42:53.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:42:53.370+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T12:42:53.386+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T12:42:53.398+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=39951) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:42:53.400+0000] {standard_task_runner.py:63} INFO - Started process 39961 to run task
+[2024-06-20T12:42:53.401+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1026', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpj6cc19pl']
+[2024-06-20T12:42:53.404+0000] {standard_task_runner.py:91} INFO - Job 1026: Subtask dbt_run
+[2024-06-20T12:42:53.587+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:42:53.750+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T12:42:53.754+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:42:53.767+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T12:42:53.768+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T12:42:53.782+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T12:42:56.119+0000] {subprocess.py:93} INFO - [0m12:42:56  Running with dbt=1.8.2
+[2024-06-20T12:42:57.208+0000] {subprocess.py:93} INFO - [0m12:42:57  Registered adapter: snowflake=1.8.3
+[2024-06-20T12:42:57.596+0000] {subprocess.py:93} INFO - [0m12:42:57  Found 8 models, 4 sources, 444 macros
+[2024-06-20T12:42:57.603+0000] {subprocess.py:93} INFO - [0m12:42:57
+[2024-06-20T12:42:58.578+0000] {subprocess.py:93} INFO - [0m12:42:58  Concurrency: 1 threads (target='dev')
+[2024-06-20T12:42:58.579+0000] {subprocess.py:93} INFO - [0m12:42:58
+[2024-06-20T12:42:58.584+0000] {subprocess.py:93} INFO - [0m12:42:58  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T12:43:04.107+0000] {subprocess.py:93} INFO - [0m12:43:04  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 5.52s]
+[2024-06-20T12:43:04.109+0000] {subprocess.py:93} INFO - [0m12:43:04  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T12:43:04.860+0000] {subprocess.py:93} INFO - [0m12:43:04  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.75s]
+[2024-06-20T12:43:04.863+0000] {subprocess.py:93} INFO - [0m12:43:04  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T12:43:05.416+0000] {subprocess.py:93} INFO - [0m12:43:05  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.55s]
+[2024-06-20T12:43:05.419+0000] {subprocess.py:93} INFO - [0m12:43:05  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T12:43:05.858+0000] {subprocess.py:93} INFO - [0m12:43:05  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 0.44s]
+[2024-06-20T12:43:05.861+0000] {subprocess.py:93} INFO - [0m12:43:05  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T12:43:06.297+0000] {subprocess.py:93} INFO - [0m12:43:06  5 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news  [[31mERROR[0m in 0.43s]
+[2024-06-20T12:43:06.300+0000] {subprocess.py:93} INFO - [0m12:43:06  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T12:43:07.794+0000] {subprocess.py:93} INFO - [0m12:43:07  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 1.49s]
+[2024-06-20T12:43:07.796+0000] {subprocess.py:93} INFO - [0m12:43:07  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T12:43:08.966+0000] {subprocess.py:93} INFO - [0m12:43:08  7 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[32mSUCCESS 1[0m in 1.17s]
+[2024-06-20T12:43:08.968+0000] {subprocess.py:93} INFO - [0m12:43:08  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T12:43:12.492+0000] {subprocess.py:93} INFO - [0m12:43:12  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 3.52s]
+[2024-06-20T12:43:12.496+0000] {subprocess.py:93} INFO - [0m12:43:12
+[2024-06-20T12:43:12.497+0000] {subprocess.py:93} INFO - [0m12:43:12  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 14.89 seconds (14.89s).
+[2024-06-20T12:43:12.679+0000] {subprocess.py:93} INFO - [0m12:43:12
+[2024-06-20T12:43:12.680+0000] {subprocess.py:93} INFO - [0m12:43:12  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T12:43:12.681+0000] {subprocess.py:93} INFO - [0m12:43:12
+[2024-06-20T12:43:12.681+0000] {subprocess.py:93} INFO - [0m12:43:12    Database Error in model transformed_nba_news (models/transformed/transformed_nba_news.sql)
+[2024-06-20T12:43:12.681+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 9 at position 8
+[2024-06-20T12:43:12.682+0000] {subprocess.py:93} INFO -   invalid identifier '"source"'
+[2024-06-20T12:43:12.682+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_nba_news.sql
+[2024-06-20T12:43:12.682+0000] {subprocess.py:93} INFO - [0m12:43:12
+[2024-06-20T12:43:12.682+0000] {subprocess.py:93} INFO - [0m12:43:12  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T12:43:13.385+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T12:43:13.386+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:43:13.413+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T12:43:13.418+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T124253, end_date=20240620T124313
+[2024-06-20T12:43:13.432+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1026 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 39961)
+[2024-06-20T12:43:13.465+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T12:43:13.507+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:43:13.510+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T12:52:18.370+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:52:18.416+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:52:18.426+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:52:18.427+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T12:52:18.440+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T12:52:18.451+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=46021) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:52:18.453+0000] {standard_task_runner.py:63} INFO - Started process 46029 to run task
+[2024-06-20T12:52:18.452+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1062', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp5tr5lnoj']
+[2024-06-20T12:52:18.454+0000] {standard_task_runner.py:91} INFO - Job 1062: Subtask dbt_run
+[2024-06-20T12:52:18.559+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:52:18.719+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T12:52:18.721+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:52:18.735+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T12:52:18.735+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T12:52:18.747+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T12:52:20.877+0000] {subprocess.py:93} INFO - [0m12:52:20  Running with dbt=1.8.2
+[2024-06-20T12:52:21.974+0000] {subprocess.py:93} INFO - [0m12:52:21  Registered adapter: snowflake=1.8.3
+[2024-06-20T12:52:22.676+0000] {subprocess.py:93} INFO - [0m12:52:22  Found 8 models, 4 sources, 444 macros
+[2024-06-20T12:52:22.679+0000] {subprocess.py:93} INFO - [0m12:52:22
+[2024-06-20T12:52:29.670+0000] {subprocess.py:93} INFO - [0m12:52:29  Concurrency: 1 threads (target='dev')
+[2024-06-20T12:52:29.672+0000] {subprocess.py:93} INFO - [0m12:52:29
+[2024-06-20T12:52:29.679+0000] {subprocess.py:93} INFO - [0m12:52:29  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T12:52:30.309+0000] {subprocess.py:93} INFO - [0m12:52:30  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.63s]
+[2024-06-20T12:52:30.312+0000] {subprocess.py:93} INFO - [0m12:52:30  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T12:52:30.937+0000] {subprocess.py:93} INFO - [0m12:52:30  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.62s]
+[2024-06-20T12:52:30.940+0000] {subprocess.py:93} INFO - [0m12:52:30  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T12:52:31.449+0000] {subprocess.py:93} INFO - [0m12:52:31  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.51s]
+[2024-06-20T12:52:31.451+0000] {subprocess.py:93} INFO - [0m12:52:31  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T12:52:31.969+0000] {subprocess.py:93} INFO - [0m12:52:31  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 0.52s]
+[2024-06-20T12:52:31.971+0000] {subprocess.py:93} INFO - [0m12:52:31  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T12:52:32.382+0000] {subprocess.py:93} INFO - [0m12:52:32  5 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news  [[31mERROR[0m in 0.41s]
+[2024-06-20T12:52:32.386+0000] {subprocess.py:93} INFO - [0m12:52:32  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T12:52:33.197+0000] {subprocess.py:93} INFO - [0m12:52:33  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.81s]
+[2024-06-20T12:52:33.201+0000] {subprocess.py:93} INFO - [0m12:52:33  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T12:52:37.389+0000] {subprocess.py:93} INFO - [0m12:52:37  7 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[32mSUCCESS 1[0m in 4.19s]
+[2024-06-20T12:52:37.391+0000] {subprocess.py:93} INFO - [0m12:52:37  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T12:52:38.364+0000] {subprocess.py:93} INFO - [0m12:52:38  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 0.97s]
+[2024-06-20T12:52:38.369+0000] {subprocess.py:93} INFO - [0m12:52:38
+[2024-06-20T12:52:38.369+0000] {subprocess.py:93} INFO - [0m12:52:38  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 15.69 seconds (15.69s).
+[2024-06-20T12:52:38.414+0000] {subprocess.py:93} INFO - [0m12:52:38
+[2024-06-20T12:52:38.414+0000] {subprocess.py:93} INFO - [0m12:52:38  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T12:52:38.415+0000] {subprocess.py:93} INFO - [0m12:52:38
+[2024-06-20T12:52:38.416+0000] {subprocess.py:93} INFO - [0m12:52:38    Database Error in model transformed_nba_news (models/transformed/transformed_nba_news.sql)
+[2024-06-20T12:52:38.417+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 9 at position 8
+[2024-06-20T12:52:38.417+0000] {subprocess.py:93} INFO -   invalid identifier 'NEWS_SOURCE'
+[2024-06-20T12:52:38.417+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_nba_news.sql
+[2024-06-20T12:52:38.417+0000] {subprocess.py:93} INFO - [0m12:52:38
+[2024-06-20T12:52:38.418+0000] {subprocess.py:93} INFO - [0m12:52:38  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T12:52:39.151+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T12:52:39.152+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:52:39.179+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T12:52:39.184+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T125218, end_date=20240620T125239
+[2024-06-20T12:52:39.198+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1062 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 46029)
+[2024-06-20T12:52:39.210+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T12:52:39.242+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:52:39.244+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T12:57:49.834+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T12:57:49.880+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:57:49.890+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T12:57:49.890+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T12:57:49.904+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T12:57:49.915+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=52130) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T12:57:49.916+0000] {standard_task_runner.py:63} INFO - Started process 52139 to run task
+[2024-06-20T12:57:49.915+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1098', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp10nc_0eq']
+[2024-06-20T12:57:49.919+0000] {standard_task_runner.py:91} INFO - Job 1098: Subtask dbt_run
+[2024-06-20T12:57:50.040+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T12:57:50.195+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T12:57:50.196+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T12:57:50.211+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T12:57:50.211+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T12:57:50.228+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T12:57:52.766+0000] {subprocess.py:93} INFO - [0m12:57:52  Running with dbt=1.8.2
+[2024-06-20T12:57:53.985+0000] {subprocess.py:93} INFO - [0m12:57:53  Registered adapter: snowflake=1.8.3
+[2024-06-20T12:57:54.363+0000] {subprocess.py:93} INFO - [0m12:57:54  Found 8 models, 4 sources, 444 macros
+[2024-06-20T12:57:54.367+0000] {subprocess.py:93} INFO - [0m12:57:54
+[2024-06-20T12:57:55.267+0000] {subprocess.py:93} INFO - [0m12:57:55  Concurrency: 1 threads (target='dev')
+[2024-06-20T12:57:55.269+0000] {subprocess.py:93} INFO - [0m12:57:55
+[2024-06-20T12:57:55.275+0000] {subprocess.py:93} INFO - [0m12:57:55  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T12:57:55.887+0000] {subprocess.py:93} INFO - [0m12:57:55  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.61s]
+[2024-06-20T12:57:55.891+0000] {subprocess.py:93} INFO - [0m12:57:55  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T12:57:56.488+0000] {subprocess.py:93} INFO - [0m12:57:56  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.59s]
+[2024-06-20T12:57:56.492+0000] {subprocess.py:93} INFO - [0m12:57:56  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T12:57:57.066+0000] {subprocess.py:93} INFO - [0m12:57:57  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.57s]
+[2024-06-20T12:57:57.070+0000] {subprocess.py:93} INFO - [0m12:57:57  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T12:57:57.565+0000] {subprocess.py:93} INFO - [0m12:57:57  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 0.49s]
+[2024-06-20T12:57:57.569+0000] {subprocess.py:93} INFO - [0m12:57:57  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T12:57:58.000+0000] {subprocess.py:93} INFO - [0m12:57:58  5 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news  [[31mERROR[0m in 0.43s]
+[2024-06-20T12:57:58.003+0000] {subprocess.py:93} INFO - [0m12:57:58  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T12:57:58.830+0000] {subprocess.py:93} INFO - [0m12:57:58  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.82s]
+[2024-06-20T12:57:58.833+0000] {subprocess.py:93} INFO - [0m12:57:58  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T12:57:59.724+0000] {subprocess.py:93} INFO - [0m12:57:59  7 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[32mSUCCESS 1[0m in 0.89s]
+[2024-06-20T12:57:59.726+0000] {subprocess.py:93} INFO - [0m12:57:59  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T12:58:00.836+0000] {subprocess.py:93} INFO - [0m12:58:00  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 1.11s]
+[2024-06-20T12:58:00.840+0000] {subprocess.py:93} INFO - [0m12:58:00
+[2024-06-20T12:58:00.841+0000] {subprocess.py:93} INFO - [0m12:58:00  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 6.47 seconds (6.47s).
+[2024-06-20T12:58:01.023+0000] {subprocess.py:93} INFO - [0m12:58:01
+[2024-06-20T12:58:01.024+0000] {subprocess.py:93} INFO - [0m12:58:01  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T12:58:01.024+0000] {subprocess.py:93} INFO - [0m12:58:01
+[2024-06-20T12:58:01.025+0000] {subprocess.py:93} INFO - [0m12:58:01    Database Error in model transformed_nba_news (models/transformed/transformed_nba_news.sql)
+[2024-06-20T12:58:01.025+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 9 at position 8
+[2024-06-20T12:58:01.026+0000] {subprocess.py:93} INFO -   invalid identifier 'NEWS_SOURCE'
+[2024-06-20T12:58:01.026+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_nba_news.sql
+[2024-06-20T12:58:01.026+0000] {subprocess.py:93} INFO - [0m12:58:01
+[2024-06-20T12:58:01.026+0000] {subprocess.py:93} INFO - [0m12:58:01  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T12:58:01.720+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T12:58:01.721+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T12:58:01.748+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T12:58:01.754+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T125749, end_date=20240620T125801
+[2024-06-20T12:58:01.769+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1098 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 52139)
+[2024-06-20T12:58:01.796+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T12:58:01.828+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T12:58:01.830+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T17:43:59.975+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T17:44:00.021+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T17:44:00.037+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T17:44:00.037+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T17:44:00.050+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T17:44:00.059+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=31617) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T17:44:00.061+0000] {standard_task_runner.py:63} INFO - Started process 31625 to run task
+[2024-06-20T17:44:00.060+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1295', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpgvbjytnp']
+[2024-06-20T17:44:00.062+0000] {standard_task_runner.py:91} INFO - Job 1295: Subtask dbt_run
+[2024-06-20T17:44:00.152+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T17:44:00.293+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T17:44:00.294+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T17:44:00.310+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T17:44:00.311+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T17:44:00.323+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T17:44:02.310+0000] {subprocess.py:93} INFO - [0m17:44:02  Running with dbt=1.8.2
+[2024-06-20T17:44:03.293+0000] {subprocess.py:93} INFO - [0m17:44:03  Registered adapter: snowflake=1.8.3
+[2024-06-20T17:44:03.593+0000] {subprocess.py:93} INFO - [0m17:44:03  Found 8 models, 4 sources, 444 macros
+[2024-06-20T17:44:03.597+0000] {subprocess.py:93} INFO - [0m17:44:03
+[2024-06-20T17:44:04.581+0000] {subprocess.py:93} INFO - [0m17:44:04  Concurrency: 1 threads (target='dev')
+[2024-06-20T17:44:04.582+0000] {subprocess.py:93} INFO - [0m17:44:04
+[2024-06-20T17:44:04.585+0000] {subprocess.py:93} INFO - [0m17:44:04  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T17:44:05.070+0000] {subprocess.py:93} INFO - [0m17:44:05  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.48s]
+[2024-06-20T17:44:05.072+0000] {subprocess.py:93} INFO - [0m17:44:05  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T17:44:05.537+0000] {subprocess.py:93} INFO - [0m17:44:05  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.46s]
+[2024-06-20T17:44:05.541+0000] {subprocess.py:93} INFO - [0m17:44:05  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T17:44:05.955+0000] {subprocess.py:93} INFO - [0m17:44:05  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.41s]
+[2024-06-20T17:44:05.957+0000] {subprocess.py:93} INFO - [0m17:44:05  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T17:44:07.143+0000] {subprocess.py:93} INFO - [0m17:44:07  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 1.18s]
+[2024-06-20T17:44:07.145+0000] {subprocess.py:93} INFO - [0m17:44:07  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T17:44:08.305+0000] {subprocess.py:93} INFO - [0m17:44:08  5 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news . [[32mSUCCESS 1[0m in 1.16s]
+[2024-06-20T17:44:08.307+0000] {subprocess.py:93} INFO - [0m17:44:08  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T17:44:09.110+0000] {subprocess.py:93} INFO - [0m17:44:09  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.80s]
+[2024-06-20T17:44:09.112+0000] {subprocess.py:93} INFO - [0m17:44:09  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T17:44:09.547+0000] {subprocess.py:93} INFO - [0m17:44:09  7 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[31mERROR[0m in 0.43s]
+[2024-06-20T17:44:09.550+0000] {subprocess.py:93} INFO - [0m17:44:09  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T17:44:10.568+0000] {subprocess.py:93} INFO - [0m17:44:10  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 1.01s]
+[2024-06-20T17:44:10.577+0000] {subprocess.py:93} INFO - [0m17:44:10
+[2024-06-20T17:44:10.577+0000] {subprocess.py:93} INFO - [0m17:44:10  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 6.98 seconds (6.98s).
+[2024-06-20T17:44:10.729+0000] {subprocess.py:93} INFO - [0m17:44:10
+[2024-06-20T17:44:10.730+0000] {subprocess.py:93} INFO - [0m17:44:10  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T17:44:10.732+0000] {subprocess.py:93} INFO - [0m17:44:10
+[2024-06-20T17:44:10.732+0000] {subprocess.py:93} INFO - [0m17:44:10    Database Error in model transformed_player_stats (models/transformed/transformed_player_stats.sql)
+[2024-06-20T17:44:10.732+0000] {subprocess.py:93} INFO -   002140 (42601): SQL compilation error:
+[2024-06-20T17:44:10.732+0000] {subprocess.py:93} INFO -   Unknown function STRING_AGG
+[2024-06-20T17:44:10.733+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_player_stats.sql
+[2024-06-20T17:44:10.735+0000] {subprocess.py:93} INFO - [0m17:44:10
+[2024-06-20T17:44:10.735+0000] {subprocess.py:93} INFO - [0m17:44:10  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T17:44:11.221+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T17:44:11.222+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T17:44:11.258+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T17:44:11.263+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T174400, end_date=20240620T174411
+[2024-06-20T17:44:11.287+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1295 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 31625)
+[2024-06-20T17:44:11.299+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T17:44:11.329+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T17:44:11.330+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T18:19:53.868+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T18:19:53.909+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T18:19:53.918+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T18:19:53.918+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T18:19:53.930+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T18:19:53.939+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=53222) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T18:19:53.940+0000] {standard_task_runner.py:63} INFO - Started process 53230 to run task
+[2024-06-20T18:19:53.939+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1434', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpk_fy7o7w']
+[2024-06-20T18:19:53.941+0000] {standard_task_runner.py:91} INFO - Job 1434: Subtask dbt_run
+[2024-06-20T18:19:54.029+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T18:19:54.169+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T18:19:54.170+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T18:19:54.189+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T18:19:54.192+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T18:19:54.206+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T18:19:56.145+0000] {subprocess.py:93} INFO - [0m18:19:56  Running with dbt=1.8.2
+[2024-06-20T18:19:57.100+0000] {subprocess.py:93} INFO - [0m18:19:57  Registered adapter: snowflake=1.8.3
+[2024-06-20T18:19:57.401+0000] {subprocess.py:93} INFO - [0m18:19:57  Found 8 models, 4 sources, 444 macros
+[2024-06-20T18:19:57.404+0000] {subprocess.py:93} INFO - [0m18:19:57
+[2024-06-20T18:19:58.281+0000] {subprocess.py:93} INFO - [0m18:19:58  Concurrency: 1 threads (target='dev')
+[2024-06-20T18:19:58.281+0000] {subprocess.py:93} INFO - [0m18:19:58
+[2024-06-20T18:19:58.285+0000] {subprocess.py:93} INFO - [0m18:19:58  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T18:19:58.722+0000] {subprocess.py:93} INFO - [0m18:19:58  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.43s]
+[2024-06-20T18:19:58.725+0000] {subprocess.py:93} INFO - [0m18:19:58  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T18:19:59.355+0000] {subprocess.py:93} INFO - [0m18:19:59  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.63s]
+[2024-06-20T18:19:59.357+0000] {subprocess.py:93} INFO - [0m18:19:59  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T18:19:59.885+0000] {subprocess.py:93} INFO - [0m18:19:59  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 0.53s]
+[2024-06-20T18:19:59.887+0000] {subprocess.py:93} INFO - [0m18:19:59  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T18:20:00.735+0000] {subprocess.py:93} INFO - [0m18:20:00  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 0.85s]
+[2024-06-20T18:20:00.737+0000] {subprocess.py:93} INFO - [0m18:20:00  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T18:20:01.840+0000] {subprocess.py:93} INFO - [0m18:20:01  5 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news . [[32mSUCCESS 1[0m in 1.10s]
+[2024-06-20T18:20:01.842+0000] {subprocess.py:93} INFO - [0m18:20:01  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T18:20:02.679+0000] {subprocess.py:93} INFO - [0m18:20:02  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.83s]
+[2024-06-20T18:20:02.681+0000] {subprocess.py:93} INFO - [0m18:20:02  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T18:20:03.095+0000] {subprocess.py:93} INFO - [0m18:20:03  7 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[31mERROR[0m in 0.41s]
+[2024-06-20T18:20:03.098+0000] {subprocess.py:93} INFO - [0m18:20:03  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T18:20:04.471+0000] {subprocess.py:93} INFO - [0m18:20:04  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 1.37s]
+[2024-06-20T18:20:04.475+0000] {subprocess.py:93} INFO - [0m18:20:04
+[2024-06-20T18:20:04.475+0000] {subprocess.py:93} INFO - [0m18:20:04  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 7.07 seconds (7.07s).
+[2024-06-20T18:20:04.607+0000] {subprocess.py:93} INFO - [0m18:20:04
+[2024-06-20T18:20:04.608+0000] {subprocess.py:93} INFO - [0m18:20:04  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T18:20:04.608+0000] {subprocess.py:93} INFO - [0m18:20:04
+[2024-06-20T18:20:04.609+0000] {subprocess.py:93} INFO - [0m18:20:04    Database Error in model transformed_player_stats (models/transformed/transformed_player_stats.sql)
+[2024-06-20T18:20:04.609+0000] {subprocess.py:93} INFO -   002061 (42601): SQL compilation error:
+[2024-06-20T18:20:04.609+0000] {subprocess.py:93} INFO -   Window function type [FIRST_VALUE] requires ORDER BY in window specification.
+[2024-06-20T18:20:04.610+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_player_stats.sql
+[2024-06-20T18:20:04.610+0000] {subprocess.py:93} INFO - [0m18:20:04
+[2024-06-20T18:20:04.610+0000] {subprocess.py:93} INFO - [0m18:20:04  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T18:20:05.080+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T18:20:05.081+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T18:20:05.107+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T18:20:05.112+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T181953, end_date=20240620T182005
+[2024-06-20T18:20:05.124+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1434 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 53230)
+[2024-06-20T18:20:05.133+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T18:20:05.162+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T18:20:05.163+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T18:33:44.026+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T18:33:44.115+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T18:33:44.131+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T18:33:44.131+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T18:33:44.158+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-06-19 00:00:00+00:00
+[2024-06-20T18:33:44.185+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=68395) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T18:33:44.197+0000] {standard_task_runner.py:63} INFO - Started process 68435 to run task
+[2024-06-20T18:33:44.189+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'dbt_run', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1537', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp3dc19d93']
+[2024-06-20T18:33:44.201+0000] {standard_task_runner.py:91} INFO - Job 1537: Subtask dbt_run
+[2024-06-20T18:33:44.348+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.dbt_run scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T18:33:44.570+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T18:33:44.571+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T18:33:44.597+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-20T18:33:44.598+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /home/ubuntu/nba_project && dbt run']
+[2024-06-20T18:33:44.620+0000] {subprocess.py:86} INFO - Output:
+[2024-06-20T18:33:46.997+0000] {subprocess.py:93} INFO - [0m18:33:46  Running with dbt=1.8.2
+[2024-06-20T18:33:48.032+0000] {subprocess.py:93} INFO - [0m18:33:48  Registered adapter: snowflake=1.8.3
+[2024-06-20T18:33:48.363+0000] {subprocess.py:93} INFO - [0m18:33:48  Found 8 models, 4 sources, 444 macros
+[2024-06-20T18:33:48.367+0000] {subprocess.py:93} INFO - [0m18:33:48
+[2024-06-20T18:33:49.331+0000] {subprocess.py:93} INFO - [0m18:33:49  Concurrency: 1 threads (target='dev')
+[2024-06-20T18:33:49.332+0000] {subprocess.py:93} INFO - [0m18:33:49
+[2024-06-20T18:33:49.336+0000] {subprocess.py:93} INFO - [0m18:33:49  1 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ........... [RUN]
+[2024-06-20T18:33:49.843+0000] {subprocess.py:93} INFO - [0m18:33:49  1 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_news ...... [[32mSUCCESS 1[0m in 0.50s]
+[2024-06-20T18:33:49.847+0000] {subprocess.py:93} INFO - [0m18:33:49  2 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores ......... [RUN]
+[2024-06-20T18:33:50.379+0000] {subprocess.py:93} INFO - [0m18:33:50  2 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_nba_scores .... [[32mSUCCESS 1[0m in 0.53s]
+[2024-06-20T18:33:50.382+0000] {subprocess.py:93} INFO - [0m18:33:50  3 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_player_stats ....... [RUN]
+[2024-06-20T18:33:53.743+0000] {subprocess.py:93} INFO - [0m18:33:53  3 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_player_stats .. [[32mSUCCESS 1[0m in 3.36s]
+[2024-06-20T18:33:53.745+0000] {subprocess.py:93} INFO - [0m18:33:53  4 of 8 START sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [RUN]
+[2024-06-20T18:33:57.680+0000] {subprocess.py:93} INFO - [0m18:33:57  4 of 8 OK created sql view model NBA_STATS_dbt_nba_stats.staging_top_100_players_stats  [[32mSUCCESS 1[0m in 3.93s]
+[2024-06-20T18:33:57.683+0000] {subprocess.py:93} INFO - [0m18:33:57  5 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news ...... [RUN]
+[2024-06-20T18:33:58.925+0000] {subprocess.py:93} INFO - [0m18:33:58  5 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_news . [[32mSUCCESS 1[0m in 1.24s]
+[2024-06-20T18:33:58.926+0000] {subprocess.py:93} INFO - [0m18:33:58  6 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores .... [RUN]
+[2024-06-20T18:33:59.742+0000] {subprocess.py:93} INFO - [0m18:33:59  6 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_nba_scores  [[32mSUCCESS 1[0m in 0.81s]
+[2024-06-20T18:33:59.744+0000] {subprocess.py:93} INFO - [0m18:33:59  7 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats .. [RUN]
+[2024-06-20T18:34:00.716+0000] {subprocess.py:93} INFO - [0m18:34:00  7 of 8 ERROR creating sql table model NBA_STATS_dbt_nba_stats.transformed_player_stats  [[31mERROR[0m in 0.97s]
+[2024-06-20T18:34:00.719+0000] {subprocess.py:93} INFO - [0m18:34:00  8 of 8 START sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [RUN]
+[2024-06-20T18:34:01.706+0000] {subprocess.py:93} INFO - [0m18:34:01  8 of 8 OK created sql table model NBA_STATS_dbt_nba_stats.transformed_top_100_players_stats  [[32mSUCCESS 1[0m in 0.99s]
+[2024-06-20T18:34:01.710+0000] {subprocess.py:93} INFO - [0m18:34:01
+[2024-06-20T18:34:01.711+0000] {subprocess.py:93} INFO - [0m18:34:01  Finished running 4 view models, 4 table models in 0 hours 0 minutes and 13.34 seconds (13.34s).
+[2024-06-20T18:34:01.848+0000] {subprocess.py:93} INFO - [0m18:34:01
+[2024-06-20T18:34:01.849+0000] {subprocess.py:93} INFO - [0m18:34:01  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-06-20T18:34:01.850+0000] {subprocess.py:93} INFO - [0m18:34:01
+[2024-06-20T18:34:01.850+0000] {subprocess.py:93} INFO - [0m18:34:01    Database Error in model transformed_player_stats (models/transformed/transformed_player_stats.sql)
+[2024-06-20T18:34:01.850+0000] {subprocess.py:93} INFO -   000979 (42601): SQL compilation error:
+[2024-06-20T18:34:01.851+0000] {subprocess.py:93} INFO -   [STAGING_PLAYER_STATS.PLAYER] is not a valid group by expression
+[2024-06-20T18:34:01.851+0000] {subprocess.py:93} INFO -   compiled Code at target/run/nba_project/models/transformed/transformed_player_stats.sql
+[2024-06-20T18:34:01.851+0000] {subprocess.py:93} INFO - [0m18:34:01
+[2024-06-20T18:34:01.851+0000] {subprocess.py:93} INFO - [0m18:34:01  Done. PASS=7 WARN=0 ERROR=1 SKIP=0 TOTAL=8
+[2024-06-20T18:34:02.748+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-06-20T18:34:02.748+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T18:34:02.773+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-06-20T18:34:02.778+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=dbt_run, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T183344, end_date=20240620T183402
+[2024-06-20T18:34:02.790+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1537 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 68435)
+[2024-06-20T18:34:02.810+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T18:34:02.839+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T18:34:02.841+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,19 @@
+[2024-06-17T18:29:01.300+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T18:29:01.356+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores manual__2024-06-17T18:12:14.273920+00:00 [queued]>
+[2024-06-17T18:29:01.366+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores manual__2024-06-17T18:12:14.273920+00:00 [queued]>
+[2024-06-17T18:29:01.367+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-17T18:29:01.382+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_nba_scores> on 2024-06-17 18:12:14.273920+00:00
+[2024-06-17T18:29:01.403+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'fetch_nba_scores', 'manual__2024-06-17T18:12:14.273920+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp0c0ihlie']
+[2024-06-17T18:29:01.409+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask fetch_nba_scores
+[2024-06-17T18:29:01.413+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5575) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-17T18:29:01.416+0000] {standard_task_runner.py:63} INFO - Started process 5629 to run task
+[2024-06-17T18:29:01.660+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.fetch_nba_scores manual__2024-06-17T18:12:14.273920+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-17T18:29:02.123+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='fetch_nba_scores' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T18:12:14.273920+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-17T18:12:14.273920+00:00'
+[2024-06-17T18:29:02.126+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T18:29:02.475+0000] {python.py:237} INFO - Done. Returned value was: /home/ubuntu/dags/nba_news_stats_data/nba_scores.json
+[2024-06-17T18:29:02.475+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T18:29:02.958+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=fetch_nba_scores, run_id=manual__2024-06-17T18:12:14.273920+00:00, execution_date=20240617T181214, start_date=20240617T182901, end_date=20240617T182902
+[2024-06-17T18:29:03.044+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-17T18:29:03.085+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+[2024-06-17T18:29:03.101+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-17T18:29:03.103+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

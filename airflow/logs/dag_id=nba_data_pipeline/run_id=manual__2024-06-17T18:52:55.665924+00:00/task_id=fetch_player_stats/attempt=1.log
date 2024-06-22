@@ -1,0 +1,10 @@
+[2024-06-17T18:53:02.559+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T18:53:02.924+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_player_stats manual__2024-06-17T18:52:55.665924+00:00 [queued]>
+[2024-06-17T18:53:02.991+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_player_stats manual__2024-06-17T18:52:55.665924+00:00 [queued]>
+[2024-06-17T18:53:02.992+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-17T18:53:03.096+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_player_stats> on 2024-06-17 18:52:55.665924+00:00
+[2024-06-17T18:53:03.164+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=9400) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-17T18:53:03.173+0000] {standard_task_runner.py:63} INFO - Started process 9625 to run task
+[2024-06-17T18:53:03.170+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'fetch_player_stats', 'manual__2024-06-17T18:52:55.665924+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp5y0ia2ey']
+[2024-06-17T18:53:03.184+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask fetch_player_stats
+[2024-06-17T18:53:03.569+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.fetch_player_stats manual__2024-06-17T18:52:55.665924+00:00 [running]> on host ip-172-31-45-144.ec2.internal

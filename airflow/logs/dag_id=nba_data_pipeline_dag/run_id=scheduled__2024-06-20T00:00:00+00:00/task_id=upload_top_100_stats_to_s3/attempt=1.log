@@ -1,0 +1,19 @@
+[2024-06-21T00:00:04.338+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-21T00:00:04.379+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.upload_top_100_stats_to_s3 scheduled__2024-06-20T00:00:00+00:00 [queued]>
+[2024-06-21T00:00:04.394+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.upload_top_100_stats_to_s3 scheduled__2024-06-20T00:00:00+00:00 [queued]>
+[2024-06-21T00:00:04.395+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-21T00:00:04.412+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): upload_top_100_stats_to_s3> on 2024-06-20 00:00:00+00:00
+[2024-06-21T00:00:04.438+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=17356) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-21T00:00:04.444+0000] {standard_task_runner.py:63} INFO - Started process 17376 to run task
+[2024-06-21T00:00:04.437+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'upload_top_100_stats_to_s3', 'scheduled__2024-06-20T00:00:00+00:00', '--job-id', '1699', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpoyv7y4kn']
+[2024-06-21T00:00:04.449+0000] {standard_task_runner.py:91} INFO - Job 1699: Subtask upload_top_100_stats_to_s3
+[2024-06-21T00:00:04.557+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.upload_top_100_stats_to_s3 scheduled__2024-06-20T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-21T00:00:04.723+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='upload_top_100_stats_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2024-06-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-20T00:00:00+00:00'
+[2024-06-21T00:00:04.725+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-21T00:00:04.867+0000] {credentials.py:1075} INFO - Found credentials from IAM Role: nba_news_stats_s3
+[2024-06-21T00:00:05.069+0000] {python.py:237} INFO - Done. Returned value was: s3://nba-stats-players/player_stats_2023_2024.json
+[2024-06-21T00:00:05.070+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-21T00:00:05.131+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline_dag, task_id=upload_top_100_stats_to_s3, run_id=scheduled__2024-06-20T00:00:00+00:00, execution_date=20240620T000000, start_date=20240621T000004, end_date=20240621T000005
+[2024-06-21T00:00:05.192+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-21T00:00:05.236+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-21T00:00:05.238+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

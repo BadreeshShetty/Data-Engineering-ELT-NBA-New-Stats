@@ -1,0 +1,221 @@
+[2024-06-18T18:41:24.006+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T18:41:24.048+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:41:24.058+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:41:24.058+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T18:41:24.071+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_storage_integration> on 2024-06-17 00:00:00+00:00
+[2024-06-18T18:41:24.080+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=18363) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T18:41:24.081+0000] {standard_task_runner.py:63} INFO - Started process 18452 to run task
+[2024-06-18T18:41:24.080+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_storage_integration', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '206', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp2wk42kxq']
+[2024-06-18T18:41:24.082+0000] {standard_task_runner.py:91} INFO - Job 206: Subtask snowflake_create_storage_integration
+[2024-06-18T18:41:24.175+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T18:41:24.321+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_storage_integration' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T18:41:24.322+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T18:41:24.336+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');
+        
+[2024-06-18T18:41:24.361+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:41:24.606+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:41:24.607+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T18:41:24.607+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T18:41:26.593+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:26.593+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');, parameters: None
+[2024-06-18T18:41:26.740+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:26.740+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T18:41:26.740+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T18:41:26.741+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518e1-0001-e49a-0006-023e0001a206
+[2024-06-18T18:41:27.047+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:41:27.048+0000] {connection.py:762} INFO - closed
+[2024-06-18T18:41:27.070+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T18:41:27.138+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T18:41:27.195+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_storage_integration, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T184124, end_date=20240618T184127
+[2024-06-18T18:41:27.231+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T18:41:27.275+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T18:41:27.277+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T18:54:15.553+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T18:54:15.595+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:54:15.604+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T18:54:15.604+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T18:54:15.617+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_storage_integration> on 2024-06-17 00:00:00+00:00
+[2024-06-18T18:54:15.626+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=22420) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T18:54:15.628+0000] {standard_task_runner.py:63} INFO - Started process 22511 to run task
+[2024-06-18T18:54:15.627+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_storage_integration', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '224', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp8j_pyqak']
+[2024-06-18T18:54:15.629+0000] {standard_task_runner.py:91} INFO - Job 224: Subtask snowflake_create_storage_integration
+[2024-06-18T18:54:15.723+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T18:54:15.872+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_storage_integration' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T18:54:15.873+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T18:54:15.886+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');
+        
+[2024-06-18T18:54:15.913+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:54:16.159+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T18:54:16.160+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T18:54:16.160+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T18:54:16.584+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:16.585+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');, parameters: None
+[2024-06-18T18:54:16.766+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:16.766+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T18:54:16.767+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T18:54:16.767+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518ee-0001-e49d-0006-023e0001f0d6
+[2024-06-18T18:54:16.829+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T18:54:16.829+0000] {connection.py:762} INFO - closed
+[2024-06-18T18:54:16.855+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T18:54:16.892+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T18:54:16.946+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_storage_integration, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T185415, end_date=20240618T185416
+[2024-06-18T18:54:16.968+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T18:54:17.012+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T18:54:17.014+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T19:09:44.694+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T19:09:44.738+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:09:44.746+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:09:44.747+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T19:09:44.759+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_storage_integration> on 2024-06-17 00:00:00+00:00
+[2024-06-18T19:09:44.772+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_storage_integration', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '244', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmprhreki0v']
+[2024-06-18T19:09:44.774+0000] {standard_task_runner.py:91} INFO - Job 244: Subtask snowflake_create_storage_integration
+[2024-06-18T19:09:44.774+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=28902) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T19:09:44.775+0000] {standard_task_runner.py:63} INFO - Started process 28930 to run task
+[2024-06-18T19:09:44.869+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T19:09:45.020+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_storage_integration' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T19:09:45.024+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T19:09:45.037+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');
+        
+[2024-06-18T19:09:45.063+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:09:45.312+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:09:45.313+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T19:09:45.314+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T19:09:45.314+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:09:45.387+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:09:45.693+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:45.693+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');, parameters: None
+[2024-06-18T19:09:45.904+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:45.904+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T19:09:45.905+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T19:09:45.905+0000] {snowflake.py:410} INFO - Snowflake query id: 01b518fd-0001-e49d-0006-023e0001f0e6
+[2024-06-18T19:09:45.978+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:09:45.978+0000] {connection.py:762} INFO - closed
+[2024-06-18T19:09:46.008+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T19:09:46.060+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T19:09:46.114+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_storage_integration, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T190944, end_date=20240618T190946
+[2024-06-18T19:09:46.156+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T19:09:46.199+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T19:09:46.201+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T19:19:23.577+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T19:19:23.618+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:19:23.627+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T19:19:23.627+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T19:19:23.639+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_storage_integration> on 2024-06-17 00:00:00+00:00
+[2024-06-18T19:19:23.649+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_storage_integration', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '264', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmpz7166toq']
+[2024-06-18T19:19:23.652+0000] {standard_task_runner.py:91} INFO - Job 264: Subtask snowflake_create_storage_integration
+[2024-06-18T19:19:23.652+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=32848) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T19:19:23.653+0000] {standard_task_runner.py:63} INFO - Started process 32878 to run task
+[2024-06-18T19:19:23.745+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T19:19:23.895+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_storage_integration' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T19:19:23.896+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T19:19:23.909+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');
+        
+[2024-06-18T19:19:23.935+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:19:24.180+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T19:19:24.181+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T19:19:24.183+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T19:19:24.183+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:19:24.248+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T19:19:24.535+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:19:24.535+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');, parameters: None
+[2024-06-18T19:19:24.703+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:19:24.704+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T19:19:24.704+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T19:19:24.704+0000] {snowflake.py:410} INFO - Snowflake query id: 01b51907-0001-e49a-0006-023e0001a26e
+[2024-06-18T19:19:24.757+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T19:19:24.758+0000] {connection.py:762} INFO - closed
+[2024-06-18T19:19:24.783+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T19:19:24.830+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T19:19:24.883+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_storage_integration, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T191923, end_date=20240618T191924
+[2024-06-18T19:19:24.912+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T19:19:24.956+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T19:19:24.958+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-18T20:33:14.104+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T20:33:14.158+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T20:33:14.169+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [queued]>
+[2024-06-18T20:33:14.169+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T20:33:14.186+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_storage_integration> on 2024-06-17 00:00:00+00:00
+[2024-06-18T20:33:14.197+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_storage_integration', 'scheduled__2024-06-17T00:00:00+00:00', '--job-id', '278', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp2whajwy5']
+[2024-06-18T20:33:14.201+0000] {standard_task_runner.py:91} INFO - Job 278: Subtask snowflake_create_storage_integration
+[2024-06-18T20:33:14.200+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2395) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T20:33:14.201+0000] {standard_task_runner.py:63} INFO - Started process 2477 to run task
+[2024-06-18T20:33:14.356+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_storage_integration scheduled__2024-06-17T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T20:33:14.625+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_storage_integration' AIRFLOW_CTX_EXECUTION_DATE='2024-06-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-17T00:00:00+00:00'
+[2024-06-18T20:33:14.627+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T20:33:14.661+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');
+        
+[2024-06-18T20:33:14.717+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T20:33:15.066+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T20:33:15.067+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T20:33:15.068+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T20:33:15.068+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T20:33:15.130+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T20:33:15.612+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:33:15.613+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE STORAGE INTEGRATION SNOW_S3
+        TYPE = EXTERNAL_STAGE
+        STORAGE_PROVIDER = S3
+        ENABLED = TRUE
+        STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::767397772312:role/nba_news_stats_s3_snowflake'
+        STORAGE_ALLOWED_LOCATIONS = ('s3://nba-stats-players/');, parameters: None
+[2024-06-18T20:33:15.775+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:33:15.775+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T20:33:15.779+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T20:33:15.779+0000] {snowflake.py:410} INFO - Snowflake query id: 01b51951-0001-e49d-0006-023e0001f182
+[2024-06-18T20:33:15.841+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T20:33:15.841+0000] {connection.py:762} INFO - closed
+[2024-06-18T20:33:15.877+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T20:33:15.916+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T20:33:16.000+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_data_pipeline, task_id=snowflake_create_storage_integration, run_id=scheduled__2024-06-17T00:00:00+00:00, execution_date=20240617T000000, start_date=20240618T203314, end_date=20240618T203316
+[2024-06-18T20:33:16.078+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T20:33:16.160+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T20:33:16.163+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

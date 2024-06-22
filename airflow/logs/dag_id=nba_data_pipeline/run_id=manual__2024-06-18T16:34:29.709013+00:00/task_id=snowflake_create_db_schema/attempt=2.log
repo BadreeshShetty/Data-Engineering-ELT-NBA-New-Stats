@@ -1,0 +1,63 @@
+[2024-06-18T16:45:47.108+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T16:45:47.151+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T16:34:29.709013+00:00 [queued]>
+[2024-06-18T16:45:47.161+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T16:34:29.709013+00:00 [queued]>
+[2024-06-18T16:45:47.161+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-18T16:45:47.176+0000] {taskinstance.py:2330} INFO - Executing <Task(SnowflakeOperator): snowflake_create_db_schema> on 2024-06-18 16:34:29.709013+00:00
+[2024-06-18T16:45:47.186+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'snowflake_create_db_schema', 'manual__2024-06-18T16:34:29.709013+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmp0to73dao']
+[2024-06-18T16:45:47.189+0000] {standard_task_runner.py:91} INFO - Job 106: Subtask snowflake_create_db_schema
+[2024-06-18T16:45:47.189+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=9908) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T16:45:47.191+0000] {standard_task_runner.py:63} INFO - Started process 9917 to run task
+[2024-06-18T16:45:47.284+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.snowflake_create_db_schema manual__2024-06-18T16:34:29.709013+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T16:45:47.430+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='snowflake_create_db_schema' AIRFLOW_CTX_EXECUTION_DATE='2024-06-18T16:34:29.709013+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-18T16:34:29.709013+00:00'
+[2024-06-18T16:45:47.432+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T16:45:47.445+0000] {sql.py:276} INFO - Executing: 
+        CREATE DATABASE IF NOT EXISTS NBA_STATS_ANALYTICS;
+        CREATE SCHEMA IF NOT EXISTS NBA_STATS_ANALYTICS.NBA_STATS;
+        
+[2024-06-18T16:45:47.471+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T16:45:47.495+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T16:45:47.496+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T16:45:47.501+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T16:45:47.501+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+                 ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 289, in get_conn
+    conn = connector.connect(**conn_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 442, in __init__
+    self.connect(**kwargs)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 707, in connect
+    self.__config(**kwargs)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1216, in __config
+    Error.errorhandler_wrapper(
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+    connection.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 251001: 251001: Account must be specified
+[2024-06-18T16:45:47.526+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline, task_id=snowflake_create_db_schema, run_id=manual__2024-06-18T16:34:29.709013+00:00, execution_date=20240618T163429, start_date=20240618T164547, end_date=20240618T164547
+[2024-06-18T16:45:47.537+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 106 for task snowflake_create_db_schema (251001: 251001: Account must be specified; 9917)
+[2024-06-18T16:45:47.567+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-18T16:45:47.594+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+[2024-06-18T16:45:47.608+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T16:45:47.613+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

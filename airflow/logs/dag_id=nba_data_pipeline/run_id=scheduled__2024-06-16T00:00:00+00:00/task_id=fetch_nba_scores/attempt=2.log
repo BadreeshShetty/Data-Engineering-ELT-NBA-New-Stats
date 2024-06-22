@@ -1,0 +1,78 @@
+[2024-06-17T15:36:29.166+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T15:45:10.500+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [queued]>
+[2024-06-17T15:45:10.799+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [queued]>
+[2024-06-17T15:45:10.806+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-17T15:45:11.422+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_nba_scores> on 2024-06-16 00:00:00+00:00
+[2024-06-17T15:45:11.775+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'fetch_nba_scores', 'scheduled__2024-06-16T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmpl8fe0y7w']
+[2024-06-17T15:45:11.848+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask fetch_nba_scores
+[2024-06-17T15:45:11.846+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=30494) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-17T15:45:11.873+0000] {standard_task_runner.py:63} INFO - Started process 31519 to run task
+[2024-06-17T15:45:13.084+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-17T15:45:13.916+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='fetch_nba_scores' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-16T00:00:00+00:00'
+[2024-06-17T15:45:13.929+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T15:45:14.053+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T15:45:14.061+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dags/nba_news_stats_etl.py", line 48, in fetch_nba_scores
+    from nba_api.live.nba.endpoints import scoreboard
+ModuleNotFoundError: No module named 'nba_api'
+[2024-06-17T15:45:14.208+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline, task_id=fetch_nba_scores, run_id=scheduled__2024-06-16T00:00:00+00:00, execution_date=20240616T000000, start_date=20240617T154510, end_date=20240617T154514
+[2024-06-17T15:45:14.307+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task fetch_nba_scores (No module named 'nba_api'; 31519)
+[2024-06-17T15:45:14.355+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-17T15:45:14.497+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+[2024-06-17T15:45:14.693+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-17T15:45:14.735+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-17T18:08:37.362+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-17T18:08:37.589+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [queued]>
+[2024-06-17T18:08:37.632+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [queued]>
+[2024-06-17T18:08:37.635+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-17T18:08:37.707+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_nba_scores> on 2024-06-16 00:00:00+00:00
+[2024-06-17T18:08:37.774+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline', 'fetch_nba_scores', 'scheduled__2024-06-16T00:00:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/nba_news_stats_etl.py', '--cfg-path', '/tmp/tmps3up82d6']
+[2024-06-17T18:08:37.803+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask fetch_nba_scores
+[2024-06-17T18:08:37.804+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3551) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-17T18:08:37.811+0000] {standard_task_runner.py:63} INFO - Started process 3763 to run task
+[2024-06-17T18:08:38.231+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline.fetch_nba_scores scheduled__2024-06-16T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-17T18:08:38.781+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline' AIRFLOW_CTX_TASK_ID='fetch_nba_scores' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-16T00:00:00+00:00'
+[2024-06-17T18:08:38.786+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-17T18:08:38.840+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-17T18:08:38.844+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dags/nba_news_stats_etl.py", line 48, in fetch_nba_scores
+    from nba_api.live.nba.endpoints import scoreboard
+ModuleNotFoundError: No module named 'nba_api'
+[2024-06-17T18:08:38.981+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline, task_id=fetch_nba_scores, run_id=scheduled__2024-06-16T00:00:00+00:00, execution_date=20240616T000000, start_date=20240617T180837, end_date=20240617T180838
+[2024-06-17T18:08:39.066+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 21 for task fetch_nba_scores (No module named 'nba_api'; 3763)
+[2024-06-17T18:08:39.133+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-17T18:08:39.226+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+[2024-06-17T18:08:39.284+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-17T18:08:39.307+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

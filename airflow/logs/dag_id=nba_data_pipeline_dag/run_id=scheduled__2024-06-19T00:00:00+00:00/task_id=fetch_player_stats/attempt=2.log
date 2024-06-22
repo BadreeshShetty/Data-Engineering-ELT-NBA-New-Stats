@@ -1,0 +1,117 @@
+[2024-06-20T16:46:25.692+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T16:46:25.731+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T16:46:25.740+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T16:46:25.740+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T16:46:25.753+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_player_stats> on 2024-06-19 00:00:00+00:00
+[2024-06-20T16:46:25.766+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=12565) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T16:46:25.768+0000] {standard_task_runner.py:63} INFO - Started process 12582 to run task
+[2024-06-20T16:46:25.769+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'fetch_player_stats', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1198', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmphc9wd7qn']
+[2024-06-20T16:46:25.771+0000] {standard_task_runner.py:91} INFO - Job 1198: Subtask fetch_player_stats
+[2024-06-20T16:46:25.872+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T16:46:26.071+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='fetch_player_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T16:46:26.072+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T16:47:10.218+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T16:47:10.219+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dags/nba_data_pipeline_dag.py", line 88, in fetch_player_stats
+    top_player_stats = top_500_players[columns]
+                       ^^^^^^^^^^^^^^^
+NameError: name 'top_500_players' is not defined
+[2024-06-20T16:47:10.248+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=fetch_player_stats, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T164625, end_date=20240620T164710
+[2024-06-20T16:47:10.260+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1198 for task fetch_player_stats (name 'top_500_players' is not defined; 12582)
+[2024-06-20T16:47:10.290+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T16:47:10.325+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T16:47:10.330+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T16:57:08.127+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T16:57:08.168+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T16:57:08.176+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T16:57:08.177+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T16:57:08.189+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_player_stats> on 2024-06-19 00:00:00+00:00
+[2024-06-20T16:57:08.198+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=18716) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T16:57:08.200+0000] {standard_task_runner.py:63} INFO - Started process 18724 to run task
+[2024-06-20T16:57:08.198+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'fetch_player_stats', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1230', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpynwokouh']
+[2024-06-20T16:57:08.200+0000] {standard_task_runner.py:91} INFO - Job 1230: Subtask fetch_player_stats
+[2024-06-20T16:57:08.294+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T16:57:08.442+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='fetch_player_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T16:57:08.444+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T16:57:53.088+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T16:57:53.089+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dags/nba_data_pipeline_dag.py", line 88, in fetch_player_stats
+    top_player_stats = top_500_players[columns]
+                       ^^^^^^^^^^^^^^^
+NameError: name 'top_500_players' is not defined
+[2024-06-20T16:57:53.118+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=fetch_player_stats, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T165708, end_date=20240620T165753
+[2024-06-20T16:57:53.130+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1230 for task fetch_player_stats (name 'top_500_players' is not defined; 18724)
+[2024-06-20T16:57:53.148+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T16:57:53.182+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T16:57:53.187+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-20T17:03:17.679+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-20T17:03:17.737+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T17:03:17.746+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [queued]>
+[2024-06-20T17:03:17.748+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-20T17:03:17.766+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_player_stats> on 2024-06-19 00:00:00+00:00
+[2024-06-20T17:03:17.776+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=23803) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-20T17:03:17.780+0000] {standard_task_runner.py:63} INFO - Started process 23820 to run task
+[2024-06-20T17:03:17.778+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'fetch_player_stats', 'scheduled__2024-06-19T00:00:00+00:00', '--job-id', '1260', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp0d77yd6d']
+[2024-06-20T17:03:17.783+0000] {standard_task_runner.py:91} INFO - Job 1260: Subtask fetch_player_stats
+[2024-06-20T17:03:17.895+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.fetch_player_stats scheduled__2024-06-19T00:00:00+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-20T17:03:18.100+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='fetch_player_stats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-19T00:00:00+00:00'
+[2024-06-20T17:03:18.101+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-20T17:04:04.092+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-20T17:04:04.092+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dags/nba_data_pipeline_dag.py", line 88, in fetch_player_stats
+    top_player_stats = top_500_players[columns]
+                       ^^^^^^^^^^^^^^^
+NameError: name 'top_500_players' is not defined
+[2024-06-20T17:04:04.122+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=fetch_player_stats, run_id=scheduled__2024-06-19T00:00:00+00:00, execution_date=20240619T000000, start_date=20240620T170317, end_date=20240620T170404
+[2024-06-20T17:04:04.136+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1260 for task fetch_player_stats (name 'top_500_players' is not defined; 23820)
+[2024-06-20T17:04:04.162+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-20T17:04:04.198+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-20T17:04:04.202+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

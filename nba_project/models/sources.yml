@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: nba_stats
+    description: "Source data from the NBA"
+    database: NBA_STATS_ANALYTICS
+    schema: NBA_STATS
+    tables:
+      - name: player_stats
+        description: "Player stats data from the NBA"
+      - name: nba_scores
+        description: "NBA scores data"
+      - name: nba_news
+        description: "NBA news data"
+      - name: top_100_players_stats
+        description: "Top 100 players stats"

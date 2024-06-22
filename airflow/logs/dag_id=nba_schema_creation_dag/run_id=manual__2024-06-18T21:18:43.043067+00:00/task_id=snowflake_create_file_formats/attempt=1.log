@@ -1,0 +1,49 @@
+[2024-06-18T21:18:54.514+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T21:18:54.573+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_schema_creation_dag.snowflake_create_file_formats manual__2024-06-18T21:18:43.043067+00:00 [queued]>
+[2024-06-18T21:18:54.585+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_schema_creation_dag.snowflake_create_file_formats manual__2024-06-18T21:18:43.043067+00:00 [queued]>
+[2024-06-18T21:18:54.585+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-18T21:18:54.603+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_create_file_formats> on 2024-06-18 21:18:43.043067+00:00
+[2024-06-18T21:18:54.618+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_schema_creation_dag', 'snowflake_create_file_formats', 'manual__2024-06-18T21:18:43.043067+00:00', '--job-id', '368', '--raw', '--subdir', 'DAGS_FOLDER/nba_schema_creation_dag.py', '--cfg-path', '/tmp/tmp9l61og1y']
+[2024-06-18T21:18:54.626+0000] {standard_task_runner.py:91} INFO - Job 368: Subtask snowflake_create_file_formats
+[2024-06-18T21:18:54.624+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=20965) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T21:18:54.627+0000] {standard_task_runner.py:63} INFO - Started process 20972 to run task
+[2024-06-18T21:18:54.768+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_schema_creation_dag.snowflake_create_file_formats manual__2024-06-18T21:18:43.043067+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T21:18:54.941+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_schema_creation_dag' AIRFLOW_CTX_TASK_ID='snowflake_create_file_formats' AIRFLOW_CTX_EXECUTION_DATE='2024-06-18T21:18:43.043067+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-18T21:18:43.043067+00:00'
+[2024-06-18T21:18:54.943+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T21:18:54.966+0000] {sql.py:276} INFO - Executing: 
+        CREATE OR REPLACE FILE FORMAT JSON_FORMAT TYPE = 'JSON';
+        CREATE OR REPLACE FILE FORMAT CSV_FORMAT TYPE = 'CSV' FIELD_DELIMITER = ',' RECORD_DELIMITER = '
+' FIELD_OPTIONALLY_ENCLOSED_BY = '"';
+        CREATE OR REPLACE FILE FORMAT PARQUET_FORMAT TYPE = 'PARQUET';
+        
+[2024-06-18T21:18:54.997+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T21:18:55.868+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T21:18:55.870+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T21:18:55.870+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T21:18:55.870+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T21:18:55.939+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T21:18:56.224+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:18:56.225+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE FILE FORMAT JSON_FORMAT TYPE = 'JSON';, parameters: None
+[2024-06-18T21:18:56.326+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:18:56.327+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T21:18:56.328+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T21:18:56.328+0000] {snowflake.py:410} INFO - Snowflake query id: 01b5197e-0001-e365-0006-023e000163a6
+[2024-06-18T21:18:56.328+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE FILE FORMAT CSV_FORMAT TYPE = 'CSV' FIELD_DELIMITER = ',' RECORD_DELIMITER = '
+' FIELD_OPTIONALLY_ENCLOSED_BY = '"';, parameters: None
+[2024-06-18T21:18:56.443+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:18:56.444+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T21:18:56.444+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T21:18:56.444+0000] {snowflake.py:410} INFO - Snowflake query id: 01b5197e-0001-e364-0006-023e0001e29a
+[2024-06-18T21:18:56.445+0000] {sql.py:487} INFO - Running statement: CREATE OR REPLACE FILE FORMAT PARQUET_FORMAT TYPE = 'PARQUET';, parameters: None
+[2024-06-18T21:18:56.530+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:18:56.531+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T21:18:56.531+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T21:18:56.531+0000] {snowflake.py:410} INFO - Snowflake query id: 01b5197e-0001-e365-0006-023e000163aa
+[2024-06-18T21:18:56.590+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:18:56.590+0000] {connection.py:762} INFO - closed
+[2024-06-18T21:18:56.624+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T21:18:56.685+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T21:18:56.742+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nba_schema_creation_dag, task_id=snowflake_create_file_formats, run_id=manual__2024-06-18T21:18:43.043067+00:00, execution_date=20240618T211843, start_date=20240618T211854, end_date=20240618T211856
+[2024-06-18T21:18:56.780+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-18T21:18:56.826+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T21:18:56.829+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,72 @@
+[2024-06-18T21:09:36.543+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-18T21:09:36.647+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.snowflake_copy_scores manual__2024-06-18T21:04:18.154884+00:00 [queued]>
+[2024-06-18T21:09:36.673+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nba_data_pipeline_dag.snowflake_copy_scores manual__2024-06-18T21:04:18.154884+00:00 [queued]>
+[2024-06-18T21:09:36.673+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-18T21:09:36.705+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): snowflake_copy_scores> on 2024-06-18 21:04:18.154884+00:00
+[2024-06-18T21:09:36.737+0000] {logging_mixin.py:188} WARNING - /home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=13975) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-06-18T21:09:36.739+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nba_data_pipeline_dag', 'snowflake_copy_scores', 'manual__2024-06-18T21:04:18.154884+00:00', '--job-id', '327', '--raw', '--subdir', 'DAGS_FOLDER/nba_data_pipeline_dag.py', '--cfg-path', '/tmp/tmph3xyrj7l']
+[2024-06-18T21:09:36.745+0000] {standard_task_runner.py:63} INFO - Started process 14068 to run task
+[2024-06-18T21:09:36.747+0000] {standard_task_runner.py:91} INFO - Job 327: Subtask snowflake_copy_scores
+[2024-06-18T21:09:37.019+0000] {task_command.py:426} INFO - Running <TaskInstance: nba_data_pipeline_dag.snowflake_copy_scores manual__2024-06-18T21:04:18.154884+00:00 [running]> on host ip-172-31-45-144.ec2.internal
+[2024-06-18T21:09:37.374+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Airflow' AIRFLOW_CTX_DAG_ID='nba_data_pipeline_dag' AIRFLOW_CTX_TASK_ID='snowflake_copy_scores' AIRFLOW_CTX_EXECUTION_DATE='2024-06-18T21:04:18.154884+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-18T21:04:18.154884+00:00'
+[2024-06-18T21:09:37.379+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-18T21:09:37.425+0000] {sql.py:276} INFO - Executing: 
+        USE SCHEMA NBA_STATS;
+        COPY INTO NBA_STATS.nba_scores
+        FROM @SNOW_S3_STAGE/nba_scores.json
+        FILE_FORMAT = (FORMAT_NAME = 'JSON_FORMAT');
+        
+[2024-06-18T21:09:37.455+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T21:09:37.924+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-06-18T21:09:37.927+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.3, Platform: Linux-6.8.0-1009-aws-x86_64-with-glibc2.39
+[2024-06-18T21:09:37.931+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-06-18T21:09:37.934+0000] {connection.py:1249} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T21:09:38.054+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-06-18T21:09:38.443+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:09:38.443+0000] {sql.py:487} INFO - Running statement: USE SCHEMA NBA_STATS;, parameters: None
+[2024-06-18T21:09:38.553+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-06-18T21:09:38.553+0000] {sql.py:496} INFO - Rows affected: 1
+[2024-06-18T21:09:38.554+0000] {snowflake.py:409} INFO - Rows affected: 1
+[2024-06-18T21:09:38.554+0000] {snowflake.py:410} INFO - Snowflake query id: 01b51975-0001-e49a-0006-023e0001a32e
+[2024-06-18T21:09:38.554+0000] {sql.py:487} INFO - Running statement: COPY INTO NBA_STATS.nba_scores
+        FROM @SNOW_S3_STAGE/nba_scores.json
+        FILE_FORMAT = (FORMAT_NAME = 'JSON_FORMAT');, parameters: None
+[2024-06-18T21:09:38.653+0000] {connection.py:762} INFO - closed
+[2024-06-18T21:09:38.724+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2024-06-18T21:09:38.763+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-18T21:09:38.763+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 397, in run
+    self._run_command(cur, sql_statement, parameters)  # type: ignore[attr-defined]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 492, in _run_command
+    cur.execute(sql_statement)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/ubuntu/nba_ns_venv/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 002003 (02000): 01b51975-0001-e49a-0006-023e0001a332: SQL compilation error:
+Integration 'SNOW_S3' does not exist or not authorized.
+[2024-06-18T21:09:38.789+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nba_data_pipeline_dag, task_id=snowflake_copy_scores, run_id=manual__2024-06-18T21:04:18.154884+00:00, execution_date=20240618T210418, start_date=20240618T210936, end_date=20240618T210938
+[2024-06-18T21:09:38.802+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 327 for task snowflake_copy_scores (002003 (02000): 01b51975-0001-e49a-0006-023e0001a332: SQL compilation error:
+Integration 'SNOW_S3' does not exist or not authorized.; 14068)
+[2024-06-18T21:09:38.820+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-18T21:09:38.856+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-18T21:09:38.858+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

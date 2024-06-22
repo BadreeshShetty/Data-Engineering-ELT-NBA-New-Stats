@@ -1,0 +1,1 @@
+[2024-06-17T18:23:59.985+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: nba_data_pipeline.fetch_news manual__2024-06-17T18:12:14.273920+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

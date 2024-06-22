@@ -1,0 +1,375 @@
+version: 2
+
+# Staging models
+models:
+  - name: staging_player_stats
+    description: "Staging table for player statistics data from the NBA"
+    columns:
+      - name: PLAYER_ID
+        description: "Unique identifier for the player"
+      - name: PLAYER
+        description: "Name of the player"
+      - name: TEAM
+        description: "Team of the player"
+      - name: GP
+        description: "Games played by the player"
+      - name: MIN
+        description: "Minutes played by the player"
+      - name: FGM
+        description: "Field goals made by the player"
+      - name: FGA
+        description: "Field goals attempted by the player"
+      - name: FG3M
+        description: "Three-point field goals made by the player"
+      - name: FG3A
+        description: "Three-point field goals attempted by the player"
+      - name: FTM
+        description: "Free throws made by the player"
+      - name: FTA
+        description: "Free throws attempted by the player"
+      - name: OREB
+        description: "Offensive rebounds by the player"
+      - name: DREB
+        description: "Defensive rebounds by the player"
+      - name: REB
+        description: "Total rebounds by the player"
+      - name: AST
+        description: "Assists by the player"
+      - name: STL
+        description: "Steals by the player"
+      - name: BLK
+        description: "Blocks by the player"
+      - name: TOV
+        description: "Turnovers by the player"
+      - name: PF
+        description: "Personal fouls by the player"
+      - name: PTS
+        description: "Points scored by the player"
+
+  - name: staging_nba_scores
+    description: "Staging table for NBA scores data"
+    columns:
+      - name: game_id
+        description: "Unique identifier for the game"
+      - name: home_team
+        description: "Home team name"
+      - name: away_team
+        description: "Away team name"
+      - name: home_score
+        description: "Home team score"
+      - name: away_score
+        description: "Away team score"
+      - name: home_best_player_name
+        description: "Best player name from the home team"
+      - name: home_best_player_points
+        description: "Points scored by the best player from the home team"
+      - name: home_best_player_rebounds
+        description: "Rebounds by the best player from the home team"
+      - name: home_best_player_assists
+        description: "Assists by the best player from the home team"
+      - name: away_best_player_name
+        description: "Best player name from the away team"
+      - name: away_best_player_points
+        description: "Points scored by the best player from the away team"
+      - name: away_best_player_rebounds
+        description: "Rebounds by the best player from the away team"
+      - name: away_best_player_assists
+        description: "Assists by the best player from the away team"
+
+  - name: staging_nba_news
+    description: "Staging table for NBA news data"
+    columns:
+      - name: title
+        description: "Title of the news article"
+      - name: description
+        description: "Description of the news article"
+      - name: url
+        description: "URL of the news article"
+      - name: news_source
+        description: "Source of the news article"
+      - name: published_at
+        description: "Published date of the news article"
+      - name: author
+        description: "Author of the news article"
+      - name: content
+        description: "Content of the news article"
+
+  - name: staging_top_100_players_stats
+    description: "Staging table for top 100 players statistics data"
+    columns:
+      - name: PLAYER_ID
+        description: "Unique identifier for the player"
+      - name: RANK
+        description: "Rank of the player"
+      - name: PLAYER
+        description: "Name of the player"
+      - name: TEAM
+        description: "Team of the player"
+      - name: GP
+        description: "Games played by the player"
+      - name: MIN
+        description: "Minutes played by the player"
+      - name: FGM
+        description: "Field goals made by the player"
+      - name: FGA
+        description: "Field goals attempted by the player"
+      - name: FG3M
+        description: "Three-point field goals made by the player"
+      - name: FG3A
+        description: "Three-point field goals attempted by the player"
+      - name: FTM
+        description: "Free throws made by the player"
+      - name: FTA
+        description: "Free throws attempted by the player"
+      - name: OREB
+        description: "Offensive rebounds by the player"
+      - name: DREB
+        description: "Defensive rebounds by the player"
+      - name: REB
+        description: "Total rebounds by the player"
+      - name: AST
+        description: "Assists by the player"
+      - name: STL
+        description: "Steals by the player"
+      - name: BLK
+        description: "Blocks by the player"
+      - name: TOV
+        description: "Turnovers by the player"
+      - name: PF
+        description: "Personal fouls by the player"
+      - name: PTS
+        description: "Points scored by the player"
+
+# Transformed models
+  - name: transformed_player_stats
+    description: "Transformed player statistics data"
+    columns:
+      - name: PLAYER_ID
+        description: "Unique identifier for the player"
+      - name: PLAYER
+        description: "Name of the player"
+      - name: TEAM
+        description: "Team of the player"
+      - name: GP
+        description: "Games played by the player"
+      - name: MIN
+        description: "Minutes played by the player"
+      - name: FGM
+        description: "Field goals made by the player"
+      - name: FGA
+        description: "Field goals attempted by the player"
+      - name: FG3M
+        description: "Three-point field goals made by the player"
+      - name: FG3A
+        description: "Three-point field goals attempted by the player"
+      - name: FTM
+        description: "Free throws made by the player"
+      - name: FTA
+        description: "Free throws attempted by the player"
+      - name: OREB
+        description: "Offensive rebounds by the player"
+      - name: DREB
+        description: "Defensive rebounds by the player"
+      - name: REB
+        description: "Total rebounds by the player"
+      - name: AST
+        description: "Assists by the player"
+      - name: STL
+        description: "Steals by the player"
+      - name: BLK
+        description: "Blocks by the player"
+      - name: TOV
+        description: "Turnovers by the player"
+      - name: PF
+        description: "Personal fouls by the player"
+      - name: PTS
+        description: "Points scored by the player"
+      - name: PPG
+        description: "Points per game by the player"
+      - name: APG
+        description: "Assists per game by the player"
+      - name: RPG
+        description: "Rebounds per game by the player"
+      - name: BPG
+        description: "Blocks per game by the player"
+      - name: SPG
+        description: "Steals per game by the player"
+      - name: FG_PERCENT
+        description: "Field goal percentage of the player"
+      - name: FG3_PERCENT
+        description: "Three-point field goal percentage of the player"
+      - name: FT_PERCENT
+        description: "Free throw percentage of the player"
+
+  - name: transformed_nba_scores
+    description: "Transformed NBA scores data"
+    columns:
+      - name: game_id
+        description: "Unique identifier for the game"
+      - name: home_team
+        description: "Home team name"
+      - name: away_team
+        description: "Away team name"
+      - name: home_score
+        description: "Home team score"
+      - name: away_score
+        description: "Away team score"
+      - name: home_best_player_name
+        description: "Best player name from the home team"
+      - name: home_best_player_points
+        description: "Points scored by the best player from the home team"
+      - name: home_best_player_rebounds
+        description: "Rebounds by the best player from the home team"
+      - name: home_best_player_assists
+        description: "Assists by the best player from the home team"
+      - name: away_best_player_name
+        description: "Best player name from the away team"
+      - name: away_best_player_points
+        description: "Points scored by the best player from the away team"
+      - name: away_best_player_rebounds
+        description: "Rebounds by the best player from the away team"
+      - name: away_best_player_assists
+        description: "Assists by the best player from the away team"
+
+  - name: transformed_nba_news
+    description: "Transformed NBA news data"
+    columns:
+      - name: title
+        description: "Title of the news article"
+      - name: description
+        description: "Description of the news article"
+      - name: url
+        description: "URL of the news article"
+      - name: news_source
+        description: "Source of the news article"
+      - name: published_at
+        description: "Published date of the news article"
+      - name: author
+        description: "Author of the news article"
+      - name: content
+        description: "Content of the news article"
+
+  - name: transformed_top_100_players_stats
+    description: "Transformed top 100 players statistics data"
+    columns:
+      - name: PLAYER_ID
+        description: "Unique identifier for the player"
+      - name: RANK
+        description: "Rank of the player"
+      - name: PLAYER
+        description: "Name of the player"
+      - name: TEAM
+        description: "Team of the player"
+      - name: GP
+        description: "Games played by the player"
+      - name: MIN
+        description: "Minutes played by the player"
+      - name: FGM
+        description: "Field goals made by the player"
+      - name: FGA
+        description: "Field goals attempted by the player"
+      - name: FG3M
+        description: "Three-point field goals made by the player"
+      - name: FG3A
+        description: "Three-point field goals attempted by the player"
+      - name: FTM
+        description: "Free throws made by the player"
+      - name: FTA
+        description: "Free throws attempted by the player"
+      - name: OREB
+        description: "Offensive rebounds by the player"
+      - name: DREB
+        description: "Defensive rebounds by the player"
+      - name: REB
+        description: "Total rebounds by the player"
+      - name: AST
+        description: "Assists by the player"
+      - name: STL
+        description: "Steals by the player"
+      - name: BLK
+        description: "Blocks by the player"
+      - name: TOV
+        description: "Turnovers by the player"
+      - name: PF
+        description: "Personal fouls by the player"
+      - name: PTS
+        description: "Points scored by the player"
+      - name: PPG
+        description: "Points per game by the player"
+      - name: APG
+        description: "Assists per game by the player"
+      - name: RPG
+        description: "Rebounds per game by the player"
+      - name: BPG
+        description: "Blocks per game by the player"
+      - name: SPG
+        description: "Steals per game by the player"
+      - name: FG_PERCENT
+        description: "Field goal percentage of the player"
+      - name: FG3_PERCENT
+        description: "Three-point field goal percentage of the player"
+      - name: FT_PERCENT
+        description: "Free throw percentage of the player"
+      
+  - name: top_100_all_time
+    description: "Top 100 of 2024 and of All time present"
+    columns:
+      - name: PLAYER_ID
+        description: "Unique identifier for the player"
+      - name: PLAYER
+        description: "Name of the player"
+      - name: TEAM
+        description: "Team of the player"
+      - name: GP
+        description: "Games played by the player"
+      - name: MIN
+        description: "Minutes played by the player"
+      - name: FGM
+        description: "Field goals made by the player"
+      - name: FGA
+        description: "Field goals attempted by the player"
+      - name: FG3M
+        description: "Three-point field goals made by the player"
+      - name: FG3A
+        description: "Three-point field goals attempted by the player"
+      - name: FTM
+        description: "Free throws made by the player"
+      - name: FTA
+        description: "Free throws attempted by the player"
+      - name: OREB
+        description: "Offensive rebounds by the player"
+      - name: DREB
+        description: "Defensive rebounds by the player"
+      - name: REB
+        description: "Total rebounds by the player"
+      - name: AST
+        description: "Assists by the player"
+      - name: STL
+        description: "Steals by the player"
+      - name: BLK
+        description: "Blocks by the player"
+      - name: TOV
+        description: "Turnovers by the player"
+      - name: PF
+        description: "Personal fouls by the player"
+      - name: PTS
+        description: "Points scored by the player"
+      - name: PPG
+        description: "Points per game by the player"
+      - name: APG
+        description: "Assists per game by the player"
+      - name: RPG
+        description: "Rebounds per game by the player"
+      - name: BPG
+        description: "Blocks per game by the player"
+      - name: SPG
+        description: "Steals per game by the player"
+      - name: FG_PERCENT
+        description: "Field goal percentage of the player"
+      - name: FG3_PERCENT
+        description: "Three-point field goal percentage of the player"
+      - name: FT_PERCENT
+        description: "Free throw percentage of the player"
+      - name: TOP_100_RANK
+        description: "Rank of the player in 2024"
+

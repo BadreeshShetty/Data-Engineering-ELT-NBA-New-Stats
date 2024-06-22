@@ -1,0 +1,133 @@
+[2024-06-20T06:12:28.712+0000] {processor.py:161} INFO - Started process (PID=5160) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:12:28.713+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:12:28.715+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:12:28.715+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:12:29.500+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:12:29.655+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:12:29.654+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:12:29.678+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:12:29.678+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:12:29.711+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 1.010 seconds
+[2024-06-20T06:16:28.055+0000] {processor.py:161} INFO - Started process (PID=5994) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:28.060+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:16:28.061+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:28.060+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:28.725+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:28.875+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:28.874+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:16:28.921+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:28.919+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:16:28.943+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.900 seconds
+[2024-06-20T06:16:59.109+0000] {processor.py:161} INFO - Started process (PID=6144) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:59.110+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:16:59.112+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:59.112+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:59.791+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:16:59.836+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:59.836+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:16:59.858+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:16:59.858+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:16:59.875+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.772 seconds
+[2024-06-20T06:17:30.115+0000] {processor.py:161} INFO - Started process (PID=6170) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:17:30.115+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:17:30.117+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:17:30.117+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:17:30.789+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:17:30.932+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:17:30.931+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:17:30.951+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:17:30.951+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:17:30.971+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.863 seconds
+[2024-06-20T06:18:01.136+0000] {processor.py:161} INFO - Started process (PID=6193) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:01.138+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:18:01.139+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:01.139+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:01.808+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:01.853+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:01.853+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:18:01.877+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:01.877+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:18:01.895+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.766 seconds
+[2024-06-20T06:18:51.467+0000] {processor.py:161} INFO - Started process (PID=6729) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:51.468+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:18:51.470+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:51.470+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:52.163+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:18:52.311+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:52.310+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:18:52.331+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:18:52.331+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:18:52.350+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.890 seconds
+[2024-06-20T06:19:22.518+0000] {processor.py:161} INFO - Started process (PID=6878) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:22.519+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:19:22.521+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:22.520+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:23.197+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:23.243+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:23.243+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:19:23.265+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:23.265+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:19:23.282+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.771 seconds
+[2024-06-20T06:19:53.566+0000] {processor.py:161} INFO - Started process (PID=6901) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:53.568+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:19:53.570+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:53.570+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:54.291+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:19:54.428+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:54.427+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:19:54.447+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:19:54.447+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:19:54.468+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.908 seconds
+[2024-06-20T06:20:24.608+0000] {processor.py:161} INFO - Started process (PID=6927) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:24.609+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:20:24.611+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:24.610+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:25.298+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:25.341+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:25.341+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:20:25.364+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:25.364+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:20:25.380+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.778 seconds
+[2024-06-20T06:20:55.621+0000] {processor.py:161} INFO - Started process (PID=6951) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:55.623+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:20:55.625+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:55.625+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:56.308+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:20:56.466+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:56.466+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:20:56.486+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:20:56.486+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:20:56.505+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.891 seconds
+[2024-06-20T06:21:26.676+0000] {processor.py:161} INFO - Started process (PID=6974) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:26.677+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:21:26.678+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:26.678+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:27.351+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:27.393+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:27.393+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:21:27.414+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:27.414+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:21:27.430+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.761 seconds
+[2024-06-20T06:21:57.687+0000] {processor.py:161} INFO - Started process (PID=6998) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:57.689+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:21:57.690+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:57.690+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:58.374+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:21:58.523+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:58.522+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:21:58.542+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:21:58.542+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:21:58.560+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.880 seconds
+[2024-06-20T06:22:28.701+0000] {processor.py:161} INFO - Started process (PID=7022) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:22:28.702+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:22:28.704+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:22:28.704+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:22:29.364+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:22:29.409+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:22:29.409+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:22:29.430+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:22:29.430+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:22:29.447+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.753 seconds
+[2024-06-20T06:22:59.706+0000] {processor.py:161} INFO - Started process (PID=7045) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:22:59.708+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:22:59.710+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:22:59.710+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:23:00.458+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:23:00.597+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:23:00.596+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:23:00.617+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:23:00.617+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:23:00.637+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.937 seconds
+[2024-06-20T06:23:30.756+0000] {processor.py:161} INFO - Started process (PID=7068) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:23:30.757+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:23:30.759+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:23:30.759+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:23:31.417+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:23:31.461+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:23:31.460+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:23:31.484+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:23:31.483+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:23:31.500+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.750 seconds
+[2024-06-20T06:24:01.815+0000] {processor.py:161} INFO - Started process (PID=7217) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:01.816+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:24:01.818+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:01.817+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:02.511+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:02.648+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:02.647+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:24:02.667+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:02.667+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:24:02.687+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.882 seconds
+[2024-06-20T06:24:32.834+0000] {processor.py:161} INFO - Started process (PID=7241) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:32.835+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:24:32.837+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:32.836+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:33.506+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:24:33.549+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:33.548+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:24:33.570+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:24:33.570+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:24:33.586+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.759 seconds
+[2024-06-20T06:25:03.815+0000] {processor.py:161} INFO - Started process (PID=7280) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:03.816+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:25:03.818+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:03.818+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:04.514+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:04.651+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:04.650+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:25:04.673+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:04.672+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:25:04.692+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.883 seconds
+[2024-06-20T06:25:34.855+0000] {processor.py:161} INFO - Started process (PID=7303) to work on /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:34.856+0000] {processor.py:830} INFO - Processing file /home/ubuntu/dags/nba_data_pipeline_dag copy.py for tasks to queue
+[2024-06-20T06:25:34.858+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:34.858+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:35.531+0000] {processor.py:840} INFO - DAG(s) 'nba_data_pipeline_dag' retrieved from /home/ubuntu/dags/nba_data_pipeline_dag copy.py
+[2024-06-20T06:25:35.576+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:35.576+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-20T06:25:35.599+0000] {logging_mixin.py:188} INFO - [2024-06-20T06:25:35.599+0000] {dag.py:3954} INFO - Setting next_dagrun for nba_data_pipeline_dag to 2024-06-19 00:00:00+00:00, run_after=2024-06-20 00:00:00+00:00
+[2024-06-20T06:25:35.616+0000] {processor.py:183} INFO - Processing /home/ubuntu/dags/nba_data_pipeline_dag copy.py took 0.767 seconds
