@@ -113,8 +113,12 @@ Detailed documentation of the project can be found [Data Engineering Project (ET
 
 ## Video Demonstration
 
-https://youtu.be/lFwdFiiomzU
-[https://github.com/BadreeshShetty/Data-Engineering-ELT-NBA-New-Stats/blob/main/Snowflake%20Top%20100%20Rank%202024.png](https://youtu.be/lFwdFiiomzU)
+
+[<img width="1470" alt="Data Analysis comparing GDP, GDP/Capita, Population IMF Data of 196 countries with SP 500/Russell 3000 Data" src="https://github.com/BadreeshShetty/Data-Engineering-ELT-NBA-New-Stats/blob/main/Snowflake%20Top%20100%20Rank%202024.png">
+](https://youtu.be/lFwdFiiomzU)
+
+
+Video Link: https://youtu.be/lFwdFiiomzU
 
 
 ## Contact
