@@ -111,6 +111,12 @@ The project is organized as follows:
 
 Detailed documentation of the project can be found [Data Engineering Project (ETL and ELT) (AWS, Airflow, DBT, Snowflake, Streamlit, Python, SQL)](https://grape-liquid-f37.notion.site/Data-Engineering-Project-ETL-and-ELT-AWS-Airflow-DBT-Snowflake-Streamlit-Python-SQL-14525b307afe4438bda2274903725ab5).
 
+## Video Demonstration
+
+https://youtu.be/lFwdFiiomzU
+[https://github.com/BadreeshShetty/Data-Engineering-ELT-NBA-New-Stats/blob/main/Snowflake%20Top%20100%20Rank%202024.png](https://youtu.be/lFwdFiiomzU)
+
+
 ## Contact
 
 For any questions or suggestions, feel free to reach out to me at [badreeshshetty@gmail.com].
