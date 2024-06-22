@@ -97,4 +97,4 @@ Video Link: https://youtu.be/lFwdFiiomzU
 
 ## Contact
 
-For any questions or suggestions, feel free to reach out to me at [badreeshshetty@gmail.com].
+For any questions or suggestions, feel free to reach out to me at badreeshshetty@gmail.com.
