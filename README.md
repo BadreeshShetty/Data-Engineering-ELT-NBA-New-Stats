@@ -22,32 +22,6 @@ The main objective of this project is to gather and process NBA scores, analyze 
 - **SQL**: Database management and querying
 - **NewsAPI**: Integration of NBA-related news
 
-## Project Structure
-
-The project is organized as follows:
-
-```
-/project-root
-|-- airflow
-|   |-- dags
-|   |-- plugins
-|-- dbt
-|   |-- models
-|   |-- snapshots
-|-- snowflake
-|   |-- scripts
-|-- streamlit
-|   |-- app.py
-|-- data
-|   |-- raw
-|   |-- processed
-|-- scripts
-|   |-- etl.py
-|   |-- elt.py
-|-- requirements.txt
-|-- README.md
-```
-
 ## Installation and Setup
 
 ### Prerequisites
