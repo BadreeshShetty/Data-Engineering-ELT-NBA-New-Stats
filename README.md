@@ -22,32 +22,6 @@ The main objective of this project is to gather and process NBA scores, analyze 
 - **SQL**: Database management and querying
 - **NewsAPI**: Integration of NBA-related news
 
-## Project Structure
-
-The project is organized as follows:
-
-```
-/project-root
-|-- airflow
-|   |-- dags
-|   |-- plugins
-|-- dbt
-|   |-- models
-|   |-- snapshots
-|-- snowflake
-|   |-- scripts
-|-- streamlit
-|   |-- app.py
-|-- data
-|   |-- raw
-|   |-- processed
-|-- scripts
-|   |-- etl.py
-|   |-- elt.py
-|-- requirements.txt
-|-- README.md
-```
-
 ## Installation and Setup
 
 ### Prerequisites
@@ -111,6 +85,16 @@ The project is organized as follows:
 
 Detailed documentation of the project can be found [Data Engineering Project (ETL and ELT) (AWS, Airflow, DBT, Snowflake, Streamlit, Python, SQL)](https://grape-liquid-f37.notion.site/Data-Engineering-Project-ETL-and-ELT-AWS-Airflow-DBT-Snowflake-Streamlit-Python-SQL-14525b307afe4438bda2274903725ab5).
 
+## Video Demonstration
+
+
+[<img width="1470" alt="DE-ELT" src="https://github.com/BadreeshShetty/Data-Engineering-ELT-NBA-New-Stats/blob/main/Snowflake%20Top%20100%20Rank%202024.png">
+](https://youtu.be/lFwdFiiomzU)
+
+
+Video Link: https://youtu.be/lFwdFiiomzU
+
+
 ## Contact
 
-For any questions or suggestions, feel free to reach out to me at [badreeshshetty@gmail.com].
+For any questions or suggestions, feel free to reach out to me at badreeshshetty@gmail.com.
